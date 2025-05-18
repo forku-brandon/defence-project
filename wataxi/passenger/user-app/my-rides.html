@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wataxi">
+    <meta name="keywords" content="wataxi">
+    <meta name="author" content="wataxi">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
+    <title>wataxi - User App </title>
+
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
+    <meta name="title-color" content="#01AA85">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- header starts -->
+    <header id="header" class="main-header inner-page-header">
+        <div class="custom-container">
+            <div class="header-panel">
+                <div class="d-flex align-items-center gap-2">
+                    <a href="#offcanvasLeft" data-bs-toggle="offcanvas">
+                        <i class="iconsax icon-btn" data-icon="text-align-left"> </i>
+                    </a>
+                    <h3 class="categories-title"> My Ride</h3>
+                </div>
+
+                <div class="d-flex align-items-center gap-sm-3 gap-2">
+                    <a href="chatting.html">
+                        <i class="iconsax icon-btn" data-icon="messages-2"> </i>
+                    </a>
+                    <a href="notification.html">
+                        <i class="iconsax icon-btn" data-icon="bell-2"> </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- my ride section starts -->
+    <section class="section-b-space">
+        <div class="custom-container">
+            <ul class="nav nav-pills my-ride-tab w-100 border-0 m-0" id="Tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pill-active-tab" data-bs-toggle="pill"
+                        data-bs-target="#active-tab">Active Ride</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="pill-pending-tab" data-bs-toggle="pill"
+                        data-bs-target="#pending-tab">Pending Ride</button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-complete-tab" data-bs-toggle="pill"
+                        data-bs-target="#complete-tab">
+                        Complete Ride</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pill-cancel-tab" data-bs-toggle="pill"
+                        data-bs-target="#cancel-tab">Cancel Ride</button>
+                </li>
+            </ul>
+
+            <div class="tab-content ride-content" id="TabContent">
+                <div class="tab-pane fade active show" id="active-tab">
+                    <ul class="my-ride-list">
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="#" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="#">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status accent-color fw-normal">Active</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-pane fade" id="pending-tab">
+                    <ul class="my-ride-list">
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="pending-ride-details.html" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="pending-ride-details.html">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status secondary-color fw-normal">Pending</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, Ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="pending-ride-details.html" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="pending-ride-details.html">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status secondary-color fw-normal">Pending</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-pane fade" id="complete-tab">
+                    <ul class="my-ride-list">
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="complete-ride-details.html" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="complete-ride-details.html">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status success-color fw-normal">Complete</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="complete-ride-details.html" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="complete-ride-details.html">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status success-color fw-normal">Complete</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-pane fade" id="cancel-tab">
+                    <ul class="my-ride-list">
+                        <li>
+                            <div class="my-ride-box">
+                                <div class="my-ride-head">
+                                    <a href="cancel-ride-details.html" class="my-ride-img">
+                                        <img class="img-fluid my-ride-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                                            alt="">
+                                    </a>
+
+                                    <div class="my-ride-content flex-column">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="cancel-ride-details.html">
+                                                <h6 class="title-color fw-medium">ID : 12000052</h6>
+                                            </a>
+                                            <span class="status error-color fw-normal">Cancel</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between  mt-2">
+                                            <h6 class="fw-mediun success-color">CFA256</h6>
+                                            <h6 class="fw-normal content-color">15 Feb'24 at 10:15 AM</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="my-ride-details">
+                                    <div class="ride-info">
+                                        <div class="ride-info-content">
+                                            <div class="d-flex align-content-center gap-2 lh-base">
+                                                <h5 class="fw-normal title-color">Aathryn Murphy</h5>
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                                                    <h5 class="fw-normal title-color">4.8</h5>
+                                                    <span class="count content-color fw-normal">(127)</span>
+                                                </div>
+                                            </div>
+                                            <h6 class="fw-normal content-color mt-1">toyota car</h6>
+                                        </div>
+                                        <img class="img-fluid profile-img" src="../assets/images/profile/p4.png"
+                                            alt="p5">
+                                    </div>
+                                    <ul class="ride-location-listing mt-3">
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                                                alt="location">
+                                            <h5 class="fw-light title-color">17, Yonge St, ottawa, </h5>
+                                        </li>
+
+                                        <li class="location-box">
+                                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                                            <h5 class="fw-light title-color border-0">20, Yonge St,  
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- my ride section end -->
+
+    <!-- panel-space start -->
+    <section class="panel-space"></section>
+    <!-- panel-space end -->
+    <!-- bottom navbar start -->
+    <div class="navbar-menu">
+        <ul>
+            <li>
+                <a href="home.html">
+                    <div class="icon">
+                        <img class="unactive" src="../assets/images/svg/home.svg" alt="home">
+                        <img class="active" src="../assets/images/svg/home-fill.svg" alt="home">
+                    </div>
+                    <span >Home</span>
+                </a>
+            </li>
+
+            <li >
+                <a href="category.html">
+                    <div class="icon">
+                        <img class="unactive" src="../assets/images/svg/category.svg" alt="category">
+                        <img class="active" src="../assets/images/svg/category-fill.svg" alt="category">
+                    </div>
+                    <span>Category</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="my-rides.html">
+                    <div class="icon">
+                        <img class="unactive" src="../assets/images/svg/car.svg" alt="car">
+                        <img class="active" src="../assets/images/svg/car-fill.svg" alt="car">
+                    </div>
+                    <span class="active">My Rides</span>
+                </a>
+            </li>
+
+            <li >
+                <a href="setting.html">
+                    <div class="icon">
+                        <img class="unactive" src="../assets/images/svg/setting.svg" alt="setting">
+                        <img class="active" src="../assets/images/svg/setting-fill.svg" alt="setting">
+                    </div>
+                    <span>Setting</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- bottom navbar end -->
+
+    <!-- sidebar starts -->
+    <div class="offcanvas sidebar-offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft">
+        <div class="offcanvas-header sidebar-header">
+            <div class="sidebar-logo">
+                <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="logo">
+                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="logo"> </div>
+        </div>
+        <div class="offcanvas-body">
+            <a href="profile-setting.html" class="profile-part d-flex align-items-center gap-2">
+                <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="p8">
+                <div>
+                    <h3>Jonathan Higgins</h3>
+                    <span>Edit Account</span>
+                </div>
+            </a>
+            <ul class="link-section switch-section">
+                <li class="active">
+                    <a href="home.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="home-2"> </i>
+                        <h3>Home</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="my-rides.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="car"> </i>
+                        <h3>My Ride</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="notification.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="bell-2"> </i>
+                        <h3>Notification</h3>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="setting.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="user-1"> </i>
+                        <h3>Setting</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="page-listing.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="book-closed"> </i>
+                        <h3>Template Pages</h3>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://themes.pixelstrap.com/pwa/wataxi/elements/elements-page.html" class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="document-text-1"> </i>
+                        <h3> Template Elements</h3>
+                    </a>
+                </li>
+
+
+                <li>
+                    <div class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="repeat"> </i>
+                        <h3>RTL</h3>
+                    </div>
+                    <div class="switch-btn">
+                        <input id="dir-switch" type="checkbox">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="pages">
+                        <i class="iconsax sidebar-icon" data-icon="brush-3"> </i>
+                        <h3>Dark</h3>
+                    </div>
+                    <div class="switch-btn">
+                        <input id="dark-switch" type="checkbox">
+                    </div>
+                </li>
+
+            </ul>
+
+            <div class="bottom-sidebar">
+                <a href="login.html" class="pages">
+                    <i class="iconsax sidebar-icon" data-icon="logout-2"> </i>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- sidebar end -->
+
+    <!-- iconsax js -->
+    <script src="../assets/js/iconsax.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- sticky-header js -->
+    <script src="../assets/js/sticky-header.js"></script>
+
+    <!-- template-setting js -->
+    <script src="../assets/js/template-setting.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/my-rides.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:46 GMT -->
+</html>

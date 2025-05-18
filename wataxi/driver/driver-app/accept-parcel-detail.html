@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/accept-ride-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:44 GMT -->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wataxi">
+    <meta name="keywords" content="wataxi">
+    <meta name="author" content="wataxi">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
+    <title>wataxi - User App </title>
+
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
+    <meta name="title-color" content="#01AA85">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- header starts -->
+    <header id="header" class="main-header inner-page-header">
+        <div class="custom-container">
+            <div class="header-panel">
+                <a href="parcels.html">
+                    <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
+                </a>
+                <a href="#reasons" data-bs-toggle="offcanvas">
+                    <span class="fw-semibold title-color">Changes</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!--  ride details section starts-->
+    <div class="location-map position-relative w-100 h-100" id="map"></div>
+    <div class="driver-info-box">
+        <div>
+            <h5 class="fw-semibold">The Passegenger’s on the way</h5>
+            <h6 class="mt-1 fw-normal content-color">Please don’t be late</h6>
+        </div>
+        <h3>6 min</h3>
+    </div>
+
+    <div class="ride-content-bg position-fixed bottom-0 w-100 h-auto mt-0">
+        <div class="details-title d-flex align-items-center justify-content-between">
+            <h4 class="fw-semibold title-color">Your ride is confirmed</h4>
+            <img class="img-fluid" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg"
+                alt="car">
+        </div>
+
+        <div class="profile-head">
+            <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
+            <div class="profile-content">
+                <div>
+                    <div class="d-flex align-items-center gap-1">
+                        <a href="#" class="d-flex align-items-center gap-2">
+                            <h5>Jonathan Higgins</h5><i class="iconsax icon" data-icon="info-circle"> </i>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center gap-1">
+                        <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg"
+                            alt="star">
+                        <h5 class="fw-normal title-color">4.8</h5>
+                        <span class="content-color fw-normal">(127)</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <a href="chatting.html" class="comm-icon">
+                        <img class="img-fluid icon-btn"
+                            src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/messages-fill.svg"
+                            alt="messages">
+                    </a>
+                    <a href="#" class="comm-icon">
+                        <img class="img-fluid icon-btn"
+                            src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/call-fill.svg" alt="car">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="vehicle-info">
+            <div>
+                <div class="d-flex align-items-center gap-1">
+                    <h4 class="fw-medium title-color">CLMV069</h4>
+                    <i class="iconsax icon" data-icon="car"> </i>
+                </div>
+                <h5 class="fw-normal content-color mt-1">Blue toyota Taxi</h5>
+            </div>
+            <div>
+                <ul class="pin-code">
+                    <li>2</li>
+                    <li>9</li>
+                    <li>6</li>
+                    <li>8</li>
+                </ul>
+                <h6 class="fw-normal title-color mt-1">Start Ride PIN</h6>
+            </div>
+        </div>
+
+        <div class="location-part ">
+            <div class="d-flex align-items-center gap-2">
+                <img class="img-fluid icon"
+                    src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg"
+                    alt="location-fill">
+                <div>
+                    <h5 class="fw-medium title-color">Bamenda</h5>
+                    <div class="d-flex align-items-center gap-3 mt-1">
+                        <h6 class="content-color fw-normal">4:36pm</h6>
+                        <h6 class="content-color fw-normal location">Drop off</h6>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="amount-part">
+            <div class="total d-flex align-items-center justify-content-between">
+                <h4 class="fw-medium title-color">Total Fare <span class="fw-semibold">400CFA</span></h4>
+                <a href="#share" data-bs-toggle="modal" class="d-flex align-items-center gap-1">
+                    <img class="share-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/forward.svg"
+                        alt="forward">
+                    <h6 class="fw-normal title-color">Share Trip</h6>
+                </a>
+            </div>
+            <div class="location-part fare-amount">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="iconsax dollar-icon" data-icon="dollar-square"> </i>
+                    <div>
+                        <h5 class="fw-medium title-color">Cash</h5>
+                        <h6 class="fw-normal content-color">Pay when the ride end</h6>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!-- ride details section end -->
+
+    <!-- add modal starts -->
+    <div class="modal fade add-modal" id="share" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Share App</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <ul class="media-list">
+                        <li>
+                            <a href="#" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/whatsapp.svg"
+                                        alt="whatsapp">
+                                </div>
+                                <h5>Whatsapp</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/facebook.svg"
+                                        alt="facebook">
+                                </div>
+                                <h5>Facebook</h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://slack.com/signin#/signin" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/instagram.svg"
+                                        alt="instagram">
+                                </div>
+                                <h5>Instagram</h5>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/accounts/login/" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/twitter.svg"
+                                        alt="twitter">
+                                </div>
+                                <h5>Twitter</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/accounts/login/" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gmail.svg"
+                                        alt="gmail">
+                                </div>
+                                <h5>Email</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://telegr.am/user_mgt/login" class="media-box">
+                                <div class="media-image mx-auto">
+                                    <img class="img-fluid icon"
+                                        src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/telegram.svg"
+                                        alt="telegram">
+                                </div>
+                                <h5>Telegram</h5>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add modal end -->
+
+  
+    <!-- map js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGCQvcXUsXwCdYArPXo72dLZ31WS3WQRw"></script>
+    <script src="../assets/js/custom-map.js"></script>
+
+    <!-- iconsax js -->
+    <script src="../assets/js/iconsax.js"></script>
+
+    <!-- sticky-header js -->
+    <script src="../assets/js/sticky-header.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- template-setting js -->
+    <script src="../assets/js/template-setting.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/accept-ride-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:45 GMT -->
+
+</html>

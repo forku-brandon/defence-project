@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wataxi">
+    <meta name="keywords" content="wataxi">
+    <meta name="author" content="wataxi">
+    <link rel="manifest" href="manifest.html">
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
+    <title>wataxi App</title>
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
+    <meta name="title-color" content="#01AA85">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="header" class=" section-t-space main-header inner-page-header">
+        <div class="custom-container">
+            <div class="header-panel">
+                <a href="elements-page.html">
+                    <i class="iconsax icon-btn" data-icon="chevron-left"></i>
+                </a>
+                <h3 class="mx-auto">Modal</h3>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- modal section starts -->
+    <section class="section-b-space">
+        <div class="custom-container">
+            <div class="app-title mt-0 mb-3">
+                <h3 class="title-color">Template</h3>
+            </div>
+
+            <a href="#delate" class="btn theme-btn w-100" data-bs-toggle="modal">Template Modal</a>
+
+            <div class="app-title mb-3">
+                <h3 class="title-color">Basic</h3>
+            </div>
+
+            <a href="#basic" class="btn theme-btn w-100" data-bs-toggle="modal">Basic Modal</a>
+
+            <div class="app-title mb-3">
+                <h3 class="title-color">Center</h3>
+            </div>
+
+            <a href="#center" class="btn theme-btn w-100" data-bs-toggle="modal">Center Modal</a>
+
+            <div class="app-title mb-3">
+                <h3 class="title-color">Full Screen</h3>
+            </div>
+
+            <a href="#full-screen" class="btn theme-btn w-100" data-bs-toggle="modal">Full Screen Modal</a>
+
+            <div class="app-title mb-3">
+                <h3 class="title-color">Backdrop</h3>
+            </div>
+
+            <a href="#backdrop" class="btn theme-btn w-100" data-bs-toggle="modal">Backdrop Modal</a>
+        </div>
+
+    </section>
+    <!-- modal section end -->
+
+    <!-- template modal starts -->
+    <div class="modal delete-modal fade" id="delate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-fluid icon" src="../assets/images/svg/alert.svg" alt="alert">
+                    <h4>Delete Your Account</h4>
+                    <p>You will lost your data By delete your account.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="element-modal.html" class="btn gray-btn w-50 m-0" data-bs-dismiss="modal">No, Keep it</a>
+                    <a href="element-modal.html" class="btn theme-btn w-50 m-0">Yes, Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- template modal end -->
+
+    <!-- basic modal starts -->
+    <div class="modal element-modal fade" id="basic" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header p-2">
+                    <h2 class="modal-title" id="exampleModalLabel">Modal Title</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Woo-hoo, you're reading this text in a modal!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="element-modal.html" class="btn gray-btn p-2" data-bs-dismiss="modal">Close</a>
+                    <a href="element-modal.html" class="btn theme-btn p-2">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- basic modal end -->
+
+    <!-- center modal starts -->
+    <div class="modal element-modal fade" id="center" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header p-2">
+                    <h2 class="modal-title" id="exampleModalLabel">Modal Title</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Woo-hoo, you're reading this text in a modal!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="element-modal.html" class="btn gray-btn p-2" data-bs-dismiss="modal">Close</a>
+                    <a href="element-modal.html" class="btn theme-btn p-2">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- center modal end -->
+
+    <!-- full-screen modal starts -->
+    <div class="modal element-modal fade" id="full-screen" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header p-2">
+                    <h2 class="modal-title" id="exampleModalLabel">Modal Title</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Woo-hoo, you're reading this text in a modal!</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="element-modal.html" class="btn gray-btn p-2" data-bs-dismiss="modal">Close</a>
+                    <a href="element-modal.html" class="btn theme-btn p-2">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- full-screen modal end -->
+
+    <!-- backdrop modal starts -->
+    <div class="modal element-modal fade" id="backdrop" data-bs-backdrop="static" tabindex="-1"
+        aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header p-2">
+                    <h2 class="modal-title" id="exampleModalLabel">Modal Title</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="content-color">I will not close if you click outside of me. Don't even try to press escape
+                        key.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="element-modal.html" class="btn gray-btn p-2" data-bs-dismiss="modal">Close</a>
+                    <a href="element-modal.html" class="btn theme-btn p-2">Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- backdrop modal end -->
+
+    <!-- iconsax js -->
+    <script src="../assets/js/iconsax.js"></script>
+
+    <!-- sticky-header js -->
+    <script src="../assets/js/sticky-header.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- template-setting js -->
+    <script src="../assets/js/template-setting.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/elements/element-modal.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:41:23 GMT -->
+</html>

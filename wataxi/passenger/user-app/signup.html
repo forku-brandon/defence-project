@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:29 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wataxi">
+    <meta name="keywords" content="wataxi">
+    <meta name="author" content="wataxi">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
+    <title>Wataxi - User App </title>
+
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
+    <meta name="title-color" content="#01AA85">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+    <style>
+        .error-message {
+            color: #ff5252;
+            font-size: 14px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ffeeee;
+            border-radius: 4px;
+            border: 1px solid #ffcccc;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header starts -->
+    <header id="header" class="main-header">
+        <div class="custom-container">
+            <div class="header-panel pb-0">
+                <a href="login.html">
+                    <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
+                </a>
+                <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="logo">
+                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="logo"> </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- signup page starts -->
+    <div class="auth-content-bg pt-3">
+        <div class="custom-container">
+            <div class="auth-title">
+                <div class="loader-line"></div>
+                <h2>Create your account</h2>
+                <h6>Explore your life by joining with Ride.</h6>
+            </div>
+
+            <!-- <form class="auth-form"> -->
+                <div class="form-group mt-0">
+                    <label class="form-label mb-2" for="Inputname">User Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputnumner">Mobile Number</label>
+                    <input type="number" class="form-control" id="number" name="number" placeholder="Enter your number">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputemail">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputpassword">password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputemail">confirm-password</label>
+                    <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Enter your confirm-password">
+                </div>
+                <div id="error-message" class="error-message" style="display: none;"></div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputid">Referral ID</label>
+                    <input type="email" class="form-control" id="Inputid" placeholder="Enter referral id">
+                </div>
+                <button class="btn theme-btn w-100 auth-btn" id="sign-up-button">Sign up</button>
+                <!-- <a href="login.html" ">Sign Up</a> -->
+                <h6 class="content-color fw-normal mt-3 text-center"> Already have
+                    an account ? <a href="login.html" class="title-color fw-medium">Sign in</a> </h6>
+            <!-- </form> -->
+        </div>
+    </div>
+    <!-- signup page end -->
+    <!-- <script type="module" src="../backend/app.js"></script> -->
+    <script type="module" src="../backend/email_auth.js"></script>
+        <!-- sticky-header js -->
+    <!-- iconsax js -->
+    <script src="../assets/js/iconsax.js"></script>
+
+    <script src="../assets/js/sticky-header.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- template-setting js -->
+    <script src="../assets/js/template-setting.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:29 GMT -->
+</html>

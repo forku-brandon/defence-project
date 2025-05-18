@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wataxi">
+    <meta name="keywords" content="wataxi">
+    <meta name="author" content="wataxi">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
+    <title>wataxi - User App </title>
+
+    <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
+    <meta name="title-color" content="#01AA85">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
+
+
+    <!-- Theme css -->
+    <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!-- header starts -->
+    <header id="header" class="main-header inner-page-header position-absolute bg-transparent">
+        <div class="custom-container">
+            <div class="header-panel p-0">
+                <a href="rental.html">
+                    <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- Select ride section starts -->
+    <div class="location-map position-relative w-100 h-100" id="map"></div>
+    <div class="theme-content-bg">
+        <h5>Choose a Package</h5>
+        <ul class="package-list">
+            <li>
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-1" checked>
+                <label class="btn package-box" for="btn-check-1">
+                    <span class="time">1 hr</span>
+                    <span class="distance">10 km</span>
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-2">
+                <label class="btn package-box" for="btn-check-2">
+                    <span class="time">2 hr</span>
+                    <span class="distance">20 km</span>
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-3">
+                <label class="btn package-box" for="btn-check-3">
+                    <span class="time">4 hr</span>
+                    <span class="distance">40 km</span>
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-4">
+                <label class="btn package-box" for="btn-check-4">
+                    <span class="time">6 hr</span>
+                    <span class="distance">60 km</span>
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-5">
+                <label class="btn package-box" for="btn-check-5">
+                    <span class="time">12 hr</span>
+                    <span class="distance">150 km</span>
+                </label>
+            </li>
+        </ul>
+
+        <h5>Vehicle type</h5>
+        <ul class="ride-tab">
+
+            <li class="w-100 white-background">
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-11" checked>
+                <label class="btn selact-ride-box" for="btn-check-11">
+                    <a href="rental-vehicle-details.html">
+                        <i class="iconsax icon" data-icon="info-circle"> </i>
+                    </a>
+                    <img class="img-fluid vehicle-img" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/bike-img.svg" alt="bike">
+                    <span class="vehicle-name d-flex align-items-center justify-content-between">
+                        Bike
+                        <span class="d-flex align-items-center fw-normal content-color">
+                            <img class="user-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/profile-fill.svg" alt="profile">
+                            2
+                        </span>
+                    </span>
+                </label>
+            </li>
+            <li class="w-100 white-background">
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-12" checked>
+                <label class="btn selact-ride-box" for="btn-check-12">
+                    <a href="rental-vehicle-details.html">
+                        <i class="iconsax icon" data-icon="info-circle"> </i>
+                    </a>
+                    <img class="img-fluid vehicle-img" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/car-img.svg" alt="bike">
+                    <span class="vehicle-name d-flex align-items-center justify-content-between">
+                        Car
+                        <span class="d-flex align-items-center fw-normal content-color">
+                            <img class="user-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/profile-fill.svg" alt="profile">
+                            5
+                        </span>
+                    </span>
+                </label>
+            </li>
+
+            <li class="w-100 white-background">
+                <input type="radio" class="btn-check" name="options-base" id="btn-check-13" checked>
+                <label class="btn selact-ride-box" for="btn-check-13">
+                    <a href="rental-vehicle-details.html">
+                        <i class="iconsax icon" data-icon="info-circle"> </i>
+                    </a>
+                    <img class="img-fluid vehicle-img" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/shared-img.svg" alt="bike">
+                    <span class="vehicle-name d-flex align-items-center justify-content-between">
+                        Luxury
+                        <span class="d-flex align-items-center fw-normal content-color">
+                            <img class="user-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/profile-fill.svg" alt="profile">
+                            6
+                        </span>
+                    </span>
+                </label>
+            </li>
+        </ul>
+
+        <p class="price-content">Minimum price for this fare is <span class="title-color fw-semibold">CFA80</span> per
+            ride. you can bid your price below.
+        </p>
+
+        <div class="ride-content-bg">
+            <form class="theme-form mt-0">
+                <div class="form-group mt-0">
+                    <label class="form-label mb-2" for="Inputstreet1">Offer your fare</label>
+                    <input type="text" class="form-control" id="Inputstreet1" placeholder="Enter fare amount">
+                </div>
+
+                <h5 class="p-0 mt-3 mb-2 fw-medium title-color">Payment Method</h5>
+                <div class="order-type">
+                    <div class="d-flex align-items-center justify-content-between gap-3 w-100">
+                        <div class="form-check form-check3 box-background">
+                            <input class="form-check-input" type="radio" name="RadioDefault" id="fixed45" checked>
+                            <label class="form-check-label" for="fixed45">
+                                <span class="check-box"></span>
+                                <span class="name">Cash</span>
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check3 box-background">
+                            <input class="form-check-input" type="radio" name="RadioDefault" id="fixed469">
+                            <label class="form-check-label" for="fixed469">
+                                <span class="check-box"></span>
+                                <span class="name">Online-Payment</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <a href="home.html" class="btn theme-btn w-100 mt-3 auth-btn">Book Ride</a>
+        </div>
+    </div>
+    <!-- Select ride section end -->
+
+    <!-- map js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGCQvcXUsXwCdYArPXo72dLZ31WS3WQRw"></script>
+    <script src="../assets/js/custom-map.js"></script>
+
+    <!-- iconsax js -->
+    <script src="../assets/js/iconsax.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- template-setting js -->
+    <script src="../assets/js/template-setting.js"></script>
+
+    <!-- script js -->
+    <script src="../assets/js/script.js"></script>
+</body>
+
+
+<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/rental-selact-ride.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:57 GMT -->
+</html>

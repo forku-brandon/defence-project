@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Google Auth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            color: #202124;
+            margin-bottom: 1.5rem;
+        }
+        button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3367D6;
+        }
+        button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            background: white;
+            padding: 8px;
+            border-radius: 2px;
+        }
+        .user-info {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .user-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .sign-out {
+            margin-top: 1rem;
+            background-color: #EA4335;
+        }
+        .sign-out:hover {
+            background-color: #D33426;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome</h1>
+        
+        <div id="sign-in-container">
+            <button id="sign-in-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo">
+                Sign in with Google
+            </button>
+        </div>
+        
+        <div id="user-info-container" class="hidden">
+            <div class="user-info">
+                <img id="user-photo" src="" alt="User photo">
+                <p><strong>Name:</strong> <span id="user-name"></span></p>
+                <p><strong>Email:</strong> <span id="user-email"></span></p>
+            </div>
+            <button id="sign-out-button" class="sign-out">Sign Out</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="../backend/app.js"></script>
+</body>
+</html>
