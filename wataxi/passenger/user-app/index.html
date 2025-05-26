@@ -94,7 +94,7 @@
                 Screen</a>
         </div>
     </div>
-    <!-- pwa install app popup start -->
+  <!-- pwa install app popup start -->
 
     <!-- iconsax js -->
     <script src="../assets/js/iconsax.js"></script>
@@ -117,28 +117,6 @@
 
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
-    <script>/*==========================
- add to home screen popup js
- ==========================*/
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  deferredPrompt = e;
-});
-
-const installApp = document.getElementById('installApp');
-
-installApp.addEventListener('click', async () => {
-  if (deferredPrompt !== null) {
-    deferredPrompt.prompt();
-    const {
-      outcome
-    } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-      deferredPrompt = null;
-    }
-  }
-});</script>
 </body>
 
 
