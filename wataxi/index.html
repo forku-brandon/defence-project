@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wataxi Pro - Smart Commercial Mobility Platform</title>
+    <style>
+        :root {
+            --taxi-yellow: #FFC107;
+            --taxi-black: #212121;
+            --taxi-red: #E53935;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9 url('https://i.imgur.com/JiQkLQp.png') no-repeat center/cover;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border-top: 10px solid var(--taxi-black);
+            position: relative;
+        }
+        
+        .header {
+            background: var(--taxi-yellow);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px dashed var(--taxi-black);
+        }
+        
+        .logo {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: var(--taxi-black);
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        .tagline {
+            color: var(--taxi-black);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--taxi-yellow);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--taxi-yellow);
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            color: var(--taxi-black);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: var(--taxi-black);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .cta-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-driver {
+            background: var(--taxi-yellow);
+            color: var(--taxi-black);
+            border: 2px solid var(--taxi-yellow);
+        }
+        
+        .btn-passenger {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .features-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="passenger\assets\images\logo\logo.png" alt="Wataxi Pro Logo" class="logo">
+            <h1>Wataxi</h1>
+            <div class="tagline">Revolutionizing Commercial Mobility in Cameroon</div>
+        </div>
+        
+        <div class="features-container">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">Smart Passenger Locator</h3>
+                <p class="feature-desc">
+                     Modern transportation 
+                     platforms utilize passive tracking with motion-adaptive algorithms
+                      to optimize location sharing, dynamically adjusting update intervals
+                       from every 15 seconds during active movement 
+                       (detected via accelerometer/gyroscope data) to every 2 minutes when stationary, reducing battery 
+                </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-traffic-light"></i>
+                </div>
+                <h3 class="feature-title">Manual Traffic Detection</h3>
+                <p class="feature-desc">
+                    Manual Traffic Reporting: Commercial drivers can instantly
+                     report road incidents (accidents, congestion, hazards) via
+                     Notification alerts through the app, creating a dynamic, 
+                     community-powered traffic map that updates in real time
+                </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-taxi"></i>
+                </div>
+                <h3 class="feature-title">Seamless Ride Booking</h3>
+                <p class="feature-desc">
+                    Instant or scheduled bookings for all vehicle types. 
+                    Special inter-city travel network with verified drivers and fixed fares.
+                </p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3 class="feature-title">Integrated Parcel Delivery</h3>
+                <p class="feature-desc">
+                    Secure package transportation with real-time tracking. 
+                    Photo verification at pickup/delivery points with multiple payment options.
+                </p>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="feature-title">Driver Analytics</h3>
+                <p class="feature-desc">
+                    Comprehensive earnings tracker with performance insights. 
+                    Vehicle maintenance scheduling and fuel optimization tools.
+                </p>
+            </div>
+           
+        
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Transform Your Mobility Business?</h2>
+            <a href="driver\driver-app\index.htmll" class="btn btn-driver">
+                <i class="fas fa-taxi"></i> I'm a Driver
+            </a>
+            <a href="passenger\user-app\index.html" class="btn btn-passenger">
+                <i class="fas fa-user"></i> I'm a Passenger
+            </a>
+        </div>
+    </div>
+</body>
+</html>
