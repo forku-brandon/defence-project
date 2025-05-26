@@ -7,27 +7,45 @@ import {
     signOut,
     onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  // Import the functions you need from the SDKs you need
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAWqzCpJ2rdwxijZv43knm0VYj6x-eGPCw",
-  authDomain: "wataxi-6e4e1.firebaseapp.com",
-  projectId: "wataxi-6e4e1",
-  storageBucket: "wataxi-6e4e1.firebasestorage.app",
-  messagingSenderId: "233520730392",
-  appId: "1:233520730392:web:28042f24e0347a3e424e6d",
-  measurementId: "G-S6XE4J9138"
-};
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyAWqzCpJ2rdwxijZv43knm0VYj6x-eGPCw",
+
+    authDomain: "wataxi-6e4e1.firebaseapp.com",
+
+    projectId: "wataxi-6e4e1",
+
+    storageBucket: "wataxi-6e4e1.firebasestorage.app",
+
+    messagingSenderId: "233520730392",
+
+    appId: "1:233520730392:web:28042f24e0347a3e424e6d",
+
+    measurementId: "G-S6XE4J9138"
+
+  };
+
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+
 // DOM elements
 const signInButton = document.getElementById('sign-in-button');
 const signOutButton = document.getElementById('sign-out-button');
