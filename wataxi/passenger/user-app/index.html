@@ -78,27 +78,22 @@
     <!-- onboarding section start -->
 
     <!-- pwa install app popup start -->
-<div class="offcanvas offcanvas-bottom addtohome-popup theme-offcanvas" tabindex="-1" id="a2hsPopup" aria-modal="true" role="dialog">
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="dismissBanner"></button>
-    <div class="offcanvas-body small">
-        <div class="app-info d-flex align-items-center">
-            <img src="../assets/images/logo/mini-logo.png" class="img-fluid me-3" alt="Wataxi Logo" width="40">
-            <div class="content">
-                <h3 class="mb-0">Wataxi Pro</h3>
-                <small class="text-muted">Get instant access to rides & deliveries</small>
+    <div class="offcanvas offcanvas-bottom addtohome-popup theme-offcanvas show" tabindex="-1" id="offcanvas"
+        aria-modal="true" role="dialog">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-body small">
+            <div class="app-info">
+                <img src="../assets/images/logo/mini-logo.png" class="img-fluid" alt="">
+                <div class="content">
+                    <h3>wataxi App</h3>
+                    <a href="#">www.wataxi-app.com</a>
+                </div>
             </div>
-        </div>
 
-        <div class="d-grid gap-2 mt-3">
-            <button class="btn theme-btn install-app btn-inline home-screen-btn" id="installApp">
-                <i class="fas fa-plus-circle me-2"></i> Add to Home Screen
-            </button>
-            <button class="btn btn-outline-secondary btn-sm" id="laterButton">
-                Maybe Later
-            </button>
+            <a href="#!" class="btn theme-btn install-app btn-inline home-screen-btn m-0" id="installApp">Add to Home
+                Screen</a>
         </div>
     </div>
-</div>
     <!-- pwa install app popup start -->
 
     <!-- iconsax js -->
@@ -119,33 +114,31 @@
 
     <!-- template-setting js -->
     <script src="../assets/js/template-setting.js"></script>
-<script>
-    // Initialize Bootstrap Offcanvas
-const a2hsPopup = new bootstrap.Offcanvas(document.getElementById('a2hsPopup'));
 
-// Show popup logic (modified from previous solution)
-function showInstallPrompt() {
-  if (isMobileDevice() && !localStorage.getItem('installPromptShown')) {
-    a2hsPopup.show();
-    localStorage.setItem('installPromptShown', 'true');
-  }
-}
-
-// Modified event listener
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(showInstallPrompt, 30000); // Show after 30s
-});
-
-// Additional handler for "Maybe Later" button
-document.getElementById('laterButton').addEventListener('click', () => {
-  a2hsPopup.hide();
-  trackInstallChoice('dismissed');
-});
-</script>
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
+    <script>/*==========================
+ add to home screen popup js
+ ==========================*/
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  deferredPrompt = e;
+});
+
+const installApp = document.getElementById('installApp');
+
+installApp.addEventListener('click', async () => {
+  if (deferredPrompt !== null) {
+    deferredPrompt.prompt();
+    const {
+      outcome
+    } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      deferredPrompt = null;
+    }
+  }
+});</script>
 </body>
 
 
