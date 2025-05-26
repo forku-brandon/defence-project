@@ -9,15 +9,24 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD0pN-FWpO4zkPqqTP8hyaDmUwyCsoSmS0",
-    authDomain: "wataxi-app.firebaseapp.com",
-    projectId: "wataxi-app",
-    storageBucket: "wataxi-app.firebasestorage.app",
-    messagingSenderId: "851282788694",
-    appId: "1:851282788694:web:ac678a2b0ba613e6f016f7",
-    measurementId: "G-3JE3J9JPE9"
-};
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyAWqzCpJ2rdwxijZv43knm0VYj6x-eGPCw",
+
+    authDomain: "wataxi-6e4e1.firebaseapp.com",
+
+    projectId: "wataxi-6e4e1",
+
+    storageBucket: "wataxi-6e4e1.firebasestorage.app",
+
+    messagingSenderId: "233520730392",
+
+    appId: "1:233520730392:web:28042f24e0347a3e424e6d",
+
+    measurementId: "G-S6XE4J9138"
+
+  };
+;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
