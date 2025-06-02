@@ -126,14 +126,14 @@
         <div class="offcanvas-header sidebar-header">
             <div class="sidebar-logo">
                 <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="logo">
-                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="logo">
+                <img class="img-fluid logo-dark" id="user-avatar" src="" alt="logo">
             </div>
         </div>
         <div class="offcanvas-body">
             <a href="profile-setting.html" class="profile-part d-flex align-items-center gap-2">
                 <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="p8">
                 <div>
-                    <h3>Jonathan Higgins</h3>
+                    <h3 id="username"></h3>
                     <span>Edit Account</span>
                 </div>
             </a>
@@ -201,6 +201,7 @@
     <script src="../assets/js/iconsax.js"></script>
     <script src="../assets/js/custom-map.js"></script>
 
+<script src="../backend/userdata.js"></script>
 
     <!-- bootstrap js -->
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

@@ -59,10 +59,10 @@
     <section class="setting-section">
         <div class="profile-section">
             <div class="profile-image">
-                <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="p8">
+                <img class="img-fluid profile-pic" id="user-avatar" src="" alt="p8">
             </div>
-            <h3 class="profile-name">Jonathan Higgins</h3>
-            <h6 class="fw-normal content-color mt-1 text-center">jonathanhiggins001@gmail.com</h6>
+            <h3 class="profile-name" id="username"></h3>
+            <h6 class="fw-normal content-color mt-1 text-center" id="email"></h6>
         </div>
 
         <div class="wallet-part">
@@ -293,13 +293,13 @@
         <div class="offcanvas-header sidebar-header">
             <div class="sidebar-logo">
                 <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="logo">
-                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="logo"> </div>
+                <img class="img-fluid logo-dark" id="user-avater" src="" alt="logo"> </div>
         </div>
         <div class="offcanvas-body">
             <a href="profile-setting.html" class="profile-part d-flex align-items-center gap-2">
-                <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="p8">
+                <img class="img-fluid profile-pic" id="user-avatar" src="" alt="p8">
                 <div>
-                    <h3>Jonathan Higgins</h3>
+                    <h3 id="username"></h3>
                     <span>Edit Account</span>
                 </div>
             </a>
@@ -361,11 +361,11 @@
             </div>
         </div>
     </div>
-    <!-- sidebar end -->
+ 
 
     <!-- iconsax js -->
     <script src="../assets/js/iconsax.js"></script>
-
+<script src="../backend/userdata.js"></script>
     <!-- bootstrap js -->
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
@@ -374,6 +374,7 @@
 
     <!-- template-setting js -->
     <script src="../assets/js/template-setting.js"></script>
+<script src="../backend/userdata.js"></script>
 
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
