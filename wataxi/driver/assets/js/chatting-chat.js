@@ -5,7 +5,7 @@ const msgerChat = get(".msger-chat");
 const BOT_MSGS = ["Hello sir, ", "How can i help you ?", "I’ll be there soon.", "I am on the way", "Oky..!! ", "Thank you.. sir!!", "Yes, I’ll arrive in 10 min"];
 
 // Icons made by Freepik from www.flaticon.com
-const BOT_IMG = "../assets/images/profile/p5.png";
+const BOT_IMG = "../assets/images/profile/p8.png";
 const PERSON_IMG = "../assets/images/profile/p2.png";
 const BOT_NAME = "BOT";
 const PERSON_NAME = "Templeton Peck";
@@ -72,7 +72,7 @@ function random(min, max) {
 // const BOT_MSGS = ["Hello sir, ", "How can i help you ?", "I’ll be there soon.", "I am on the way", "Oky..!! ", "Thank you.. sir!!", "Yes, I’ll arrive in 10 min"];
 
 // // Icons made by Freepik from www.flaticon.com
-// const BOT_IMG = "../../../assets/images/icons/p5.png";
+// const BOT_IMG = "../../../assets/images/icons/p8.png";
 // const PERSON_IMG = "../../../assets/images/icons/p2.png";
 // const BOT_NAME = "BOT";
 // const PERSON_NAME = "Templeton Peck";
