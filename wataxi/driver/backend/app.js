@@ -73,7 +73,7 @@ signInButton.addEventListener('click', () => {
             storeUserSession(user);
             
             // Redirect to home page after successful login
-            window.location.href = "home.html";
+            window.location.href = "location.html";
         })
         .catch((error) => {
             // Handle Errors here
@@ -117,7 +117,7 @@ onAuthStateChanged(auth, (user) => {
         
         // If user is already logged in and on login page, redirect to home
         if (window.location.pathname.endsWith('index.html')) {
-            window.location.href = "home.html";
+            window.location.href = "location.html";
         }
     } else {
         // User is signed out
