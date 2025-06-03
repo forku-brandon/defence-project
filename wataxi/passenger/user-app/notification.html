@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/notification.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:40 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +10,7 @@
     <meta name="author" content="wataxi">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
-    <title>wataxi - User App </title>
+    <title>wataxi - User App</title>
 
     <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
     <meta name="title-color" content="#01AA85">
@@ -20,15 +18,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="wataxi">
     <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
-
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!--Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
     <!-- iconsax css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/iconsax.css">
@@ -38,6 +34,10 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+    
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
 </head>
 
 <body>
@@ -59,7 +59,8 @@
     <!-- notification section starts -->
     <section class="section-b-space">
         <div class="custom-container">
-            <ul class="notification-list">
+            <ul class="notification-list" id="notification-list">
+                <!-- Existing notifications -->
                 <li>
                     <div class="notification-box unread">
                         <div>
@@ -83,29 +84,20 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="notification-box">
-                        <div>
-                            <h5>New year shopping with rider!</h5>
-                            <p>You have booked plumber service today at 6:30pm.</p>
-                        </div>
-                        <div class="notification-icon">
-                            <i class="iconsax icon" data-icon="driving"> </i>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="notification-box">
-                        <div>
-                            <h5>You have received 1 coupon</h5>
-                            <p>You have booked plumber service today at 6:30pm.</p>
-                        </div>
-                        <div class="notification-icon">
-                            <i class="iconsax icon" data-icon="ticket-discount"></i>
-                        </div>
-                    </div>
-                </li>
+                <!-- Dynamic notifications will be added here by JavaScript -->
             </ul>
+            
+            <!-- Enable Notifications Button -->
+            <button type="button" class="btn btn-primary" id="enable-notifications-btn" style="margin-top: 20px;">
+                Enable Push Notifications
+            </button>
+            
+            <!-- Token display (hidden by default) -->
+            <div id="token-container" style="display: none; margin-top: 20px; word-break: break-all;">
+                <h5>Your Device Token:</h5>
+                <div id="fcm-token" class="alert alert-info"></div>
+                <p>This token identifies your device for notifications</p>
+            </div>
         </div>
     </section>
     <!-- notification section end -->
@@ -115,17 +107,126 @@
 
     <!-- sticky-header js -->
     <script src="../assets/js/sticky-header.js"></script>
-
+<script src="../backend/firebase-messaging-sw.js"></script>
     <!-- bootstrap js -->
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- template-setting js -->
     <script src="../assets/js/template-setting.js"></script>
 
+    <!-- Firebase and Notification Script -->
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD0pN-FWpO4zkPqqTP8hyaDmUwyCsoSmS0",
+            authDomain: "wataxi-app.firebaseapp.com",
+            projectId: "wataxi-app",
+            storageBucket: "wataxi-app.firebasestorage.app",
+            messagingSenderId: "851282788694",
+            appId: "1:851282788694:web:ac678a2b0ba613e6f016f7",
+            measurementId: "G-3JE3J9JPE9"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+
+        // VAPID key from Firebase Console > Project Settings > Cloud Messaging
+        const vapidKey = "BDYGVyrXay46ZQGns0dqxilcuXX2MYplf2B8gTW9w6siRz1pEbqIcx5tzIY8icMYDA4_4eok63YS8zNFT8oSDJU";
+
+        // DOM Elements
+        const enableNotificationsBtn = document.getElementById('enable-notifications-btn');
+        const tokenContainer = document.getElementById('token-container');
+        const fcmTokenElement = document.getElementById('fcm-token');
+        const notificationList = document.getElementById('notification-list');
+
+        // Request notification permission
+        enableNotificationsBtn.addEventListener('click', () => {
+            Notification.requestPermission().then((permission) => {
+                if (permission === 'granted') {
+                    console.log('Notification permission granted.');
+                    getFCMToken();
+                    enableNotificationsBtn.textContent = 'Notifications Enabled';
+                    enableNotificationsBtn.classList.remove('btn-primary');
+                    enableNotificationsBtn.classList.add('btn-success');
+                } else {
+                    console.log('Unable to get permission to notify.');
+                    alert('Please enable notifications in your browser settings to receive important updates.');
+                }
+            });
+        });
+
+        // Get FCM token
+        function getFCMToken() {
+            messaging.getToken({ vapidKey: vapidKey }).then((currentToken) => {
+                if (currentToken) {
+                    console.log('FCM Token:', currentToken);
+                    fcmTokenElement.textContent = currentToken;
+                    tokenContainer.style.display = 'block';
+                    
+                    // Send token to your server (you'll need to implement this)
+                    // sendTokenToServer(currentToken);
+                } else {
+                    console.log('No registration token available.');
+                }
+            }).catch((err) => {
+                console.log('An error occurred while retrieving token. ', err);
+            });
+        }
+
+        // Handle incoming messages when app is in foreground
+        messaging.onMessage((payload) => {
+            console.log('Message received: ', payload);
+            
+            // Add the new notification to the list
+            addNotificationToList(payload.notification);
+            
+            // Also show as browser notification
+            showBrowserNotification(payload.notification);
+        });
+
+        // Add notification to the HTML list
+        function addNotificationToList(notification) {
+            const notificationItem = document.createElement('li');
+            notificationItem.innerHTML = `
+                <div class="notification-box unread">
+                    <div>
+                        <h5>${notification.title}</h5>
+                        <p>${notification.body}</p>
+                    </div>
+                    <div class="notification-icon">
+                        <i class="iconsax icon" data-icon="bell"> </i>
+                    </div>
+                </div>
+            `;
+            notificationList.insertBefore(notificationItem, notificationList.firstChild);
+        }
+
+        // Show browser notification
+        function showBrowserNotification(notification) {
+            if (!("Notification" in window)) {
+                console.log("This browser does not support notifications");
+                return;
+            }
+
+            const notificationOptions = {
+                body: notification.body,
+                icon: '../assets/images/logo/favicon.png'
+            };
+
+            new Notification(notification.title, notificationOptions);
+        }
+
+        // Check if notifications are already enabled on page load
+        if (Notification.permission === 'granted') {
+            enableNotificationsBtn.textContent = 'Notifications Enabled';
+            enableNotificationsBtn.classList.remove('btn-primary');
+            enableNotificationsBtn.classList.add('btn-success');
+            getFCMToken();
+        }
+    </script>
+
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
 </body>
-
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/notification.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:40 GMT -->
 </html>
