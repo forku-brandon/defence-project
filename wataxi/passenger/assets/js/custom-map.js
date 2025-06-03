@@ -1,3 +1,24 @@
+
+  var map;
+  function initMap() {
+    // Coordinates for Northwest Cameroon (e.g., Bamenda)
+    const cameroonNW = {lat: 6.0406, lng: 10.6134}; 
+    
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: cameroonNW,  // Centers on NW Cameroon
+      zoom: 10  // Higher zoom level for city-level view
+    });
+    
+    // Optional: Add a marker
+    new google.maps.Marker({
+      position: cameroonNW,
+      map: map,
+      title: "Northwest Cameroon"
+    });
+  }
+
+
+
 var
     mapObject,
     markers = [],
