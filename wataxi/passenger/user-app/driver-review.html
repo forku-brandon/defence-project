@@ -62,86 +62,89 @@
     </header>
     <!-- header end -->
 
-    <!-- driver review section starts -->
-    <section class="auth-content-bg section-b-space">
+   <!-- driver review section starts -->
+<section class="auth-content-bg section-b-space">
+    <div class="custom-container">
+        <div class="profile-section">
+            <div class="profile-bg w-100" style="height: 150px; background-color: #005F20;"></div>
+            <div class="profile-image">
+                <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="driver">
+            </div>
+            <h3 class="profile-name">John Mbah</h3>
+            <h6 class="fw-normal content-color mt-1 text-center">Bamenda Taxi Driver</h6>
+
+            <h5 class="fw-medium title-color mt-3 mb-2">Rate Your Driver</h5>
+            <div class="rating-box">
+                <ul class="rating-list gap-3">
+                    <li>
+                        <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                    </li>
+                    <li>
+                        <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                    </li>
+                    <li>
+                        <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                    </li>
+                    <li>
+                        <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
+                    </li>
+                    <li>
+                        <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star-plan.svg" alt="star-plan">
+                    </li>
+                </ul>
+                <h4 class="fw-medium title-color">4/5</h4>
+            </div>
+
+            <div class="tip-part">
+                <h5 class="fw-medium title-color mt-3">Show appreciation with a tip?</h5>
+
+                <div class="tip-list">
+                    <div class="tip-amount-box">
+                        <input class="form-control" type="radio" id="amount1" name="amount" value="">
+                        <label class="check-label" for="amount1">CFA500</label>
+                    </div>
+
+                    <div class="tip-amount-box">
+                        <input class="form-control" type="radio" id="amount2" name="amount" value="">
+                        <label class="check-label" for="amount2">CFA1,000</label>
+                    </div>
+
+                    <div class="tip-amount-box">
+                        <input class="form-control" type="radio" id="amount3" name="amount" value="">
+                        <label class="check-label" for="amount3">CFA1,500</label>
+                    </div>
+
+                    <div class="tip-amount-box">
+                        <input class="form-control" type="radio" id="other" name="amount" value="">
+                        <label class="check-label" for="other">Other Amount</label>
+                    </div>
+                </div>
+                <input type="text" class="form-control mt-3" id="other-field" name="amount" value=""
+                    placeholder="Enter custom amount">
+
+                <div class="auth-form">
+                    <div class="form-group mt-0">
+                        <label class="form-label mb-2" for="Inputname">Share Your Experience</label>
+                        <textarea class="form-control" id="Inputname" rows="3"
+                            placeholder="How was your ride with John?"></textarea>
+                    </div>
+                </div>
+
+                <div class="local-info mt-3 p-3" style="background-color: #f8f9fa; border-radius: 10px;">
+                    <h6 class="fw-bold small" style="color: #005F20;">Tips are appreciated but not required</h6>
+                    <p class="small content-color">Average tips in Bamenda: CFA500-2,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-btn">
         <div class="custom-container">
-            <div class="profile-section">
-                <img class="img-fluid profile-bg w-100" src="../assets/images/background/profile-bg.jpg"
-                    alt="profile-bg">
-                <div class="profile-image">
-                    <img class="img-fluid profile-pic" src="../assets/images/profile/p8.png" alt="p8">
-                </div>
-                <h3 class="profile-name">Jonathan Higgins</h3>
-                <h6 class="fw-normal content-color mt-1 text-center">jonathanhiggins001@gmail.com</h6>
-
-                <h5 class="fw-medium title-color mt-3 mb-2">Rate Us</h5>
-                <div class="rating-box">
-                    <ul class="rating-list gap-3">
-                        <li>
-                            <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                        </li>
-                        <li>
-                            <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                        </li>
-                        <li>
-                            <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                        </li>
-                        <li>
-                            <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                        </li>
-                        <li>
-                            <img class="img-fluid star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star-plan.svg" alt="star-plan">
-                        </li>
-                    </ul>
-                    <h4 class="fw-medium title-color">4/5</h4>
-                </div>
-
-                <div class="tip-part">
-                    <h5 class="fw-medium title-color mt-3">Do you want to give a tip your driver?</h5>
-
-                    <div class="tip-list">
-                        <div class="tip-amount-box">
-                            <input class="form-control" type="radio" id="amount1" name="amount" value="">
-                            <label class="check-label" for="amount1">CFA5</label>
-                        </div>
-
-                        <div class="tip-amount-box">
-                            <input class="form-control" type="radio" id="amount2" name="amount" value="">
-                            <label class="check-label" for="amount2">CFA10</label>
-                        </div>
-
-                        <div class="tip-amount-box">
-                            <input class="form-control" type="radio" id="amount3" name="amount" value="">
-                            <label class="check-label" for="amount3">CFA15</label>
-                        </div>
-
-                        <div class="tip-amount-box">
-                            <input class="form-control" type="radio" id="other" name="amount" value="">
-                            <label class="check-label" for="other">Custom</label>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control mt-3" id="other-field" name="amount" value=""
-                        placeholder="custom tip">
-
-                    <div class="auth-form">
-                        <div class="form-group mt-0">
-                            <label class="form-label mb-2" for="Inputname">Add Comments</label>
-                            <textarea class="form-control" id="Inputname" rows="3"
-                                placeholder="Enter comment"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="home.html" class="btn theme-btn w-100" style="background-color: #005F20;">Submit Review</a>
         </div>
-
-        <div class="fixed-btn">
-            <div class="custom-container">
-                <a href="home.html" class="btn theme-btn w-100">Submit Review</a>
-            </div>
-        </div>
-    </section>
-    <!-- driver review section end -->
-
+    </div>
+</section>
+<!-- driver review section end -->
     <!-- panel-space start -->
     <section class="panel-space"></section>
     <!-- panel-space end -->

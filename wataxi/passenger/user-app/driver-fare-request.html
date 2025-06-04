@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/driver-fare-request.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:57 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="wataxi">
-    <meta name="keywords" content="wataxi">
-    <meta name="author" content="wataxi">
+    <meta name="description" content="Bamenda Taxi">
+    <meta name="keywords" content="taxi, bamenda, northwest cameroon">
+    <meta name="author" content="Bamenda Taxi Services">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
-    <title>wataxi - User App </title>
+    <title>Bamenda Taxi - Find Drivers</title>
 
     <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
-    <meta name="title-color" content="#01AA85">
+    <meta name="title-color" content="#005F20"> <!-- Northwest green color -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="apple-mobile-web-app-title" content="Bamenda Taxi">
     <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
-
-    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileColor" content="#005F20">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!--Google font-->
@@ -36,9 +33,20 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
 
-
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
+    <style>
+        .success-color {
+            color: #005F20; /* Northwest green for prices */
+        }
+        .theme-btn {
+            background-color: #005F20;
+            border-color: #005F20;
+        }
+        .map-img {
+            border-bottom: 3px solid #005F20;
+        }
+    </style>
 </head>
 
 <body>
@@ -60,7 +68,7 @@
     <!-- driver request section starts -->
     <section class="pt-0 driver-request section-b-space">
         <div class="map-image">
-            <img class="img-fluid map-img" src="../assets/images/map.png" alt="map">
+            <img class="img-fluid map-img" src="../assets/images/map.png" alt="bamenda-map">
         </div>
         <div class="custom-container">
             <ul class="driver-list">
@@ -68,22 +76,22 @@
                     <div class="driver-box">
                         <div class="profile-head">
                             <div class="d-flex align-items-center gap-2">
-                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
-                                <h5>toyota car</h5>
+                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="driver">
+                                <h5>Toyota Corolla</h5>
                             </div>
-                            <h4 class="fw-semibold success-color">CFA100</h4>
+                            <h4 class="fw-semibold success-color">CFA1,500</h4>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
-                            <h5 class="fw-normal title-color">Jonathan Higgins</h5>
-                            <h6 class="fw-normal content-color">6 min</h6>
+                            <h5 class="fw-normal title-color">John Mbah</h5>
+                            <h6 class="fw-normal content-color">8 min</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
                             <div class="d-flex align-items-center gap-1">
                                 <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                                <h5 class="fw-normal title-color">4.8</h5>
-                                <span class="content-color fw-normal">(127)</span>
+                                <h5 class="fw-normal title-color">4.7</h5>
+                                <span class="content-color fw-normal">(89)</span>
                             </div>
-                            <h6 class="fw-normal content-color">2 km</h6>
+                            <h6 class="fw-normal content-color">3 km</h6>
                         </div>
 
                         <div class="grid-btn mt-2">
@@ -99,20 +107,20 @@
                     <div class="driver-box">
                         <div class="profile-head">
                             <div class="d-flex align-items-center gap-2">
-                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
-                                <h5>toyota car</h5>
+                                <img class="img-fluid profile-img" src="../assets/images/profile/p12.png" alt="driver">
+                                <h5>Hyundai Accent</h5>
                             </div>
-                            <h4 class="fw-semibold success-color">CFA100</h4>
+                            <h4 class="fw-semibold success-color">CFA1,800</h4>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
-                            <h5 class="fw-normal title-color">Jonathan Higgins</h5>
-                            <h6 class="fw-normal content-color">6 min</h6>
+                            <h5 class="fw-normal title-color">Sarah Nfor</h5>
+                            <h6 class="fw-normal content-color">5 min</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
                             <div class="d-flex align-items-center gap-1">
                                 <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                                <h5 class="fw-normal title-color">4.8</h5>
-                                <span class="content-color fw-normal">(127)</span>
+                                <h5 class="fw-normal title-color">4.9</h5>
+                                <span class="content-color fw-normal">(124)</span>
                             </div>
                             <h6 class="fw-normal content-color">2 km</h6>
                         </div>
@@ -131,22 +139,22 @@
                     <div class="driver-box">
                         <div class="profile-head">
                             <div class="d-flex align-items-center gap-2">
-                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
-                                <h5>toyota car</h5>
+                                <img class="img-fluid profile-img" src="../assets/images/profile/p10.png" alt="driver">
+                                <h5>Nissan Sunny</h5>
                             </div>
-                            <h4 class="fw-semibold success-color">CFA100</h4>
+                            <h4 class="fw-semibold success-color">CFA1,200</h4>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
-                            <h5 class="fw-normal title-color">Jonathan Higgins</h5>
-                            <h6 class="fw-normal content-color">6 min</h6>
+                            <h5 class="fw-normal title-color">Mark Tanto</h5>
+                            <h6 class="fw-normal content-color">12 min</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
                             <div class="d-flex align-items-center gap-1">
                                 <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                                <h5 class="fw-normal title-color">4.8</h5>
-                                <span class="content-color fw-normal">(127)</span>
+                                <h5 class="fw-normal title-color">4.5</h5>
+                                <span class="content-color fw-normal">(67)</span>
                             </div>
-                            <h6 class="fw-normal content-color">2 km</h6>
+                            <h6 class="fw-normal content-color">5 km</h6>
                         </div>
 
                         <div class="grid-btn mt-2">
@@ -162,22 +170,22 @@
                     <div class="driver-box">
                         <div class="profile-head">
                             <div class="d-flex align-items-center gap-2">
-                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
-                                <h5>toyota car</h5>
+                                <img class="img-fluid profile-img" src="../assets/images/profile/p9.png" alt="driver">
+                                <h5>Toyota RAV4</h5>
                             </div>
-                            <h4 class="fw-semibold success-color">CFA100</h4>
+                            <h4 class="fw-semibold success-color">CFA2,500</h4>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
-                            <h5 class="fw-normal title-color">Jonathan Higgins</h5>
-                            <h6 class="fw-normal content-color">6 min</h6>
+                            <h5 class="fw-normal title-color">Pauline Fon</h5>
+                            <h6 class="fw-normal content-color">15 min</h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-between mt-2">
                             <div class="d-flex align-items-center gap-1">
                                 <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
                                 <h5 class="fw-normal title-color">4.8</h5>
-                                <span class="content-color fw-normal">(127)</span>
+                                <span class="content-color fw-normal">(142)</span>
                             </div>
-                            <h6 class="fw-normal content-color">2 km</h6>
+                            <h6 class="fw-normal content-color">7 km</h6>
                         </div>
 
                         <div class="grid-btn mt-2">
@@ -189,39 +197,13 @@
                         </div>
                     </div>
                 </li>
-
-                <li>
-                    <div class="driver-box">
-                        <div class="profile-head">
-                            <div class="d-flex align-items-center gap-2">
-                                <img class="img-fluid profile-img" src="../assets/images/profile/p8.png" alt="profile">
-                                <h5>toyota car</h5>
-                            </div>
-                            <h4 class="fw-semibold success-color">CFA100</h4>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mt-2">
-                            <h5 class="fw-normal title-color">Jonathan Higgins</h5>
-                            <h6 class="fw-normal content-color">6 min</h6>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mt-2">
-                            <div class="d-flex align-items-center gap-1">
-                                <img class="star" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/star.svg" alt="star">
-                                <h5 class="fw-normal title-color">4.8</h5>
-                                <span class="content-color fw-normal">(127)</span>
-                            </div>
-                            <h6 class="fw-normal content-color">2 km</h6>
-                        </div>
-
-                        <div class="grid-btn mt-2">
-                            <a href="#alert" data-bs-toggle="offcanvas" class="btn gray-btn w-100 m-0">Skip</a>
-                            <a href="accept-ride-details.html" class="btn theme-btn w-100 m-0">Accept</a>
-                        </div>
-                        <div class="progress mt-2" role="progressbar">
-                            <div class="progress-bar w-100"></div>
-                        </div>
-                    </div>
-                </li>
             </ul>
+            
+            <div class="local-info mt-3 p-3" style="background-color: #f8f9fa; border-radius: 10px;">
+                <h6 class="fw-bold" style="color: #005F20;">Bamenda Taxi Info:</h6>
+                <p class="small content-color">Average fares within city: CFA1,000-2,000</p>
+                <p class="small content-color">Popular routes: Commercial Ave → Up Station, Nkwen → Mile 4</p>
+            </div>
         </div>
     </section>
     <!-- driver request section end -->
@@ -231,7 +213,7 @@
         <div class="offcanvas-body p-0">
             <div class="alert-part">
                 <div class="title-content">
-                    <h3>Are you sure you want to cancel ?</h3>
+                    <h3>Are you sure you want to cancel?</h3>
                 </div>
                 <div class="mt-4">
                     <a href="driver-fare-request.html" class="btn gray-btn w-100 m-0">No</a>
@@ -278,19 +260,19 @@
                     <li>
                         <div class="reasons-box">
                             <img src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/message-remove.svg" alt="message-remove">
-                            <h4>Driver doesn’t answer</h4>
+                            <h4>Driver doesn't answer</h4>
                         </div>
                     </li>
                     <li>
                         <div class="reasons-box">
                             <img src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/driving-fill.svg" alt="driving">
-                            <h4>Complaint about the rider</h4>
+                            <h4>Ghost town restrictions</h4>
                         </div>
                     </li>
                     <li>
                         <div class="reasons-box">
                             <img src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/clock-circle.svg" alt="clock">
-                            <h4>Driver getting closer</h4>
+                            <h4>Change of plans</h4>
                         </div>
                     </li>
                 </ul>
@@ -317,7 +299,4 @@
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
 </body>
-
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/driver-fare-request.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:58 GMT -->
 </html>

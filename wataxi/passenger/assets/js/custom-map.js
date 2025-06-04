@@ -1,421 +1,144 @@
+var map;
+var markers = [];
+var directionsService;
+var directionsRenderer;
+var userMarker;
 
-  var map;
-  function initMap() {
-    // Coordinates for Northwest Cameroon (e.g., Bamenda)
-    const cameroonNW = {lat: 6.0406, lng: 10.6134}; 
+function initMap() {
+    // Default center on Bamenda, Northwest Cameroon
+    const bamenda = {lat: 5.9631, lng: 10.1591};
     
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: cameroonNW,  // Centers on NW Cameroon
-      zoom: 10  // Higher zoom level for city-level view
-    });
-    
-    // Optional: Add a marker
-    new google.maps.Marker({
-      position: cameroonNW,
-      map: map,
-      title: "Northwest Cameroon"
-    });
-  }
-
-
-
-var
-    mapObject,
-    markers = [],
-    markersData = {
-        'marker_location': [
-            {
-                location_latitude: 1.297745,
-                location_longitude: 103.814809,
-                icon_name: '../assets/images/icons/user.png',
-            },
-            {
-                location_latitude: 1.277222,
-                location_longitude: 103.862939,
-                icon_name: '../assets/images/icons/destination.png',
-            },
-            {
-                location_latitude: 1.286792,
-                location_longitude: 103.839495,
-                icon_name: '../assets/images/icons/car.png',
-            },
-            {
-                location_latitude: 1.280799,
-                location_longitude: 103.847102,
-                icon_name: '../assets/images/icons/car.png',
-            },
-            {
-                location_latitude: 1.275337,
-                location_longitude: 103.815249,
-                icon_name: '../assets/images/icons/car.png',
-            }
-
+    // Map options
+    var mapOptions = {
+        zoom: 14,
+        center: bamenda,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControl: false,
+        panControl: false,
+        zoomControl: true,
+        streetViewControl: false,
+        styles: [
+            {"featureType": "poi", "stylers": [{"visibility": "off"}]},
+            {"featureType": "transit", "stylers": [{"visibility": "off"}]}
         ]
     };
 
+    // Initialize map
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(25.1915395, 55.2709932),
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    // Initialize directions service
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        suppressMarkers: true,
+        polylineOptions: { strokeColor: "#005F20", strokeWeight: 4 }
+    });
+    directionsRenderer.setMap(map);
 
-    mapTypeControl: false,
-    mapTypeControlOptions: {
-        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-        position: google.maps.ControlPosition.LEFT_CENTER
-    },
-    panControl: false,
-    panControlOptions: {
-        position: google.maps.ControlPosition.TOP_RIGHT
-    },
-    zoomControl: true,
-    zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.LARGE,
-        position: google.maps.ControlPosition.RIGHT_BOTTOM
-    },
-    scrollwheel: false,
-    scaleControl: false,
-    scaleControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
-    },
-    streetViewControl: true,
-    streetViewControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_BOTTOM
-    },
-    styles: [
-        {
-            "featureType": "administrative.country",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative.province",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative.locality",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative.neighborhood",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative.land_parcel",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape.man_made",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape.natural.landcover",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape.natural.terrain",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.attraction",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.business",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.government",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.medical",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.park",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.park",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.place_of_worship",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.school",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.sports_complex",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway.controlled_access",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.line",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.station.airport",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.station.bus",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit.station.rail",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "on"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        }
-    ]
-};
-var marker;
-mapObject = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-var directionsService = new google.maps.DirectionsService();
-var directionsRenderer = new google.maps.DirectionsRenderer({
-    suppressMarkers: true,
-    polylineOptions: {
-        strokeColor: "#222222"
+    // Try to get user's current location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                var userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                
+                // Center map on user's location
+                map.setCenter(userLocation);
+                
+                // Add user location marker
+                userMarker = new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    icon: {
+                        url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
+                        scaledSize: new google.maps.Size(32, 32)
+                    },
+                    title: 'Your Location'
+                });
+                markers.push(userMarker);
+                
+                // Add destination marker (Bamenda center)
+                addMarker(bamenda.lat, bamenda.lng, 
+                         'https://cdn-icons-png.flaticon.com/512/4474/4474309.png', 
+                         'Destination');
+                
+                // Calculate route from user's location to Bamenda center
+                calculateRoute(userLocation, bamenda);
+            },
+            function(error) {
+                // If geolocation fails, use default Bamenda location
+                console.error("Geolocation error:", error);
+                initDefaultMarkers(bamenda);
+            }
+        );
+    } else {
+        // Browser doesn't support Geolocation
+        console.error("Geolocation is not supported by this browser.");
+        initDefaultMarkers(bamenda);
     }
-});
-directionsRenderer.setMap(mapObject);
-calculateAndDisplayRoute(directionsService, directionsRenderer);
+}
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+function initDefaultMarkers(center) {
+    // Add default markers when geolocation isn't available
+    addMarker(center.lat, center.lng, 
+             'https://cdn-icons-png.flaticon.com/512/4474/4474284.png', 
+             'Your Location');
+    
+    addMarker(5.9650, 10.1650, 
+             'https://cdn-icons-png.flaticon.com/512/4474/4474309.png', 
+             'Destination');
+    
+    addMarker(5.9620, 10.1570, 
+             'https://cdn-icons-png.flaticon.com/512/3079/3079027.png', 
+             'Taxi Driver');
+}
+
+function addMarker(lat, lng, iconUrl, title) {
+    var marker = new google.maps.Marker({
+        position: {lat: lat, lng: lng},
+        map: map,
+        icon: {
+            url: iconUrl,
+            scaledSize: new google.maps.Size(32, 32)
+        },
+        title: title
+    });
+    markers.push(marker);
+    return marker;
+}
+
+function calculateRoute(start, end) {
     directionsService.route(
         {
-            origin: { query: 'Boufe Boutique Cafe' },
-            destination: { query: 'Gardens by the Bay' },
+            origin: start,
+            destination: end,
             travelMode: 'DRIVING'
         },
-        function (response, status) {
+        function(response, status) {
             if (status === 'OK') {
                 directionsRenderer.setDirections(response);
+                
+                // Add a taxi marker along the route
+                var route = response.routes[0];
+                var path = route.overview_path;
+                var midPoint = path[Math.floor(path.length/2)];
+                
+                addMarker(midPoint.lat(), midPoint.lng(),
+                         'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
+                         'Taxi on Route');
             } else {
-                window.alert('Directions request failed due to ' + status);
+                console.log('Directions request failed:', status);
             }
         });
 }
 
-for (var key in markersData)
-
-    markersData[key].forEach(function (item) {
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(item.location_latitude, item.location_longitude),
-            map: mapObject,
-            animation: google.maps.Animation.DROP,
-            icon: item.icon_name,
-            title: item.data_title
-        });
-
-        if ('undefined' === typeof markers[key])
-            markers[key] = [];
-        markers[key].push(marker);
-
-    });
-
 function hideAllMarkers() {
-    for (var key in markers)
-        markers[key].forEach(function (marker) {
-            marker.setMap(null);
-        });
-}
-
-function toggleMarkers(category) {
-    hideAllMarkers();
-    closeInfoBox();
-
-    if ('undefined' === typeof markers[category])
-        return false;
-    markers[category].forEach(function (marker) {
-        marker.setMap(mapObject);
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-
+    markers.forEach(function(marker) {
+        marker.setMap(null);
     });
+    markers = [];
 }
 
-function onHtmlClick(location_type, key) {
-    google.maps.event.trigger(markers[location_type][key], "click");
-}
-// setTimeout(function () {
-//     $(".gm-style img").each(function () {
-//         if (this.src.indexOf("user.png") !== -1) {
-//             $(this).addClass("d-none");
-//         }
-//         if (this.src.indexOf("destination.png") !== -1) {
-//             $(this).addClass("d-none");
-//         }
-//         if (this.src.indexOf("car.png") !== -1) {
-//             $(this).addClass("d-none");
-//         }
-//     });
-// }, 5000);
+// Initialize the map
+window.initMap = initMap;
