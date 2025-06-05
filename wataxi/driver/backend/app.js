@@ -129,7 +129,7 @@ onAuthStateChanged(auth, (user) => {
         
         // If user is logged out and on home page, redirect to login
         if (window.location.pathname.endsWith('home.html')) {
-            window.location.href = "index.html";
+            window.location.href = "location.html";
         }
     }
 });

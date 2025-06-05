@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/driver-app/driver-bank-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:41:21 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="wataxi">
-    <meta name="keywords" content="wataxi">
-    <meta name="author" content="wataxi">
+    <meta name="description" content="Mami Wata Ride - Driver App">
+    <meta name="keywords" content="taxi, ride, Bamenda, driver, Northwest Cameroon">
+    <meta name="author" content="Mami Wata Ride">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
-    <title>wataxi - Driver App </title>
+    <title>Mami Wata Ride - Driver App</title>
     <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
     <meta name="title-color" content="#01AA85">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="apple-mobile-web-app-title" content="Mami Wata Ride">
     <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
 
     <meta name="msapplication-TileColor" content="#FFFFFF">
@@ -35,7 +33,6 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
 
-
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
 </head>
@@ -48,8 +45,8 @@
                 <a href="signup.html">
                     <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
                 </a>
-                <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="logo">
-                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="logo"> </div>
+                <img class="img-fluid logo" src="../assets/images/logo/logo.png" alt="Mami Wata Ride">
+                <img class="img-fluid logo-dark" src="../assets/images/logo/logo-dark.png" alt="Mami Wata Ride"> </div>
         </div>
     </header>
     <!-- header end -->
@@ -65,38 +62,52 @@
             </ul>
 
             <div class="auth-title">
-                <h2>Bank Details</h2>
-                <h6>Explore your life by joining with Ride.</h6>
+                <h2>Put Your Bank Info</h2>
+                <h6>We go use this account to pay your money</h6>
             </div>
 
             <form class="auth-form mt-0 pt-4">
                 <div class="form-group mt-0">
-                    <label class="form-label mb-2" for="Inputname">Bank Name</label>
-                    <input type="text" class="form-control" id="Inputname" placeholder="Enter bank name">
+                    <label class="form-label mb-2" for="Inputname">Which Bank You Dey Use?</label>
+                    <select class="form-control" id="Inputname">
+                        <option value="">Select your bank</option>
+                        <option value="afriland">Afriland First Bank</option>
+                        <option value="ecobank">Ecobank Cameroon</option>
+                        <option value="uba">United Bank for Africa (UBA)</option>
+                        <option value="scb">Société Générale Cameroon</option>
+                        <option value="ncc">National Credit Union (NCC)</option>
+                        <option value="bicec">BICEC</option>
+                    </select>
                 </div>
                 <div class="form-group ">
-                    <label class="form-label mb-2" for="Inputholder">Holder Name</label>
-                    <input type="text" class="form-control" id="Inputholder" placeholder="Enter holder name">
+                    <label class="form-label mb-2" for="Inputholder">Name Wey Dey For Account</label>
+                    <input type="text" class="form-control" id="Inputholder" placeholder="Enter name wey dey for account">
                 </div>
                 <div class="form-group">
-                    <label class="form-label mb-2" for="Inputnumner">Account No.</label>
-                    <input type="number" class="form-control" id="Inputnumner" placeholder="Enter your account no">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label mb-2" for="Inputbranch">Branch Name</label>
-                    <input type="text" class="form-control" id="Inputbranch" placeholder="Enter branch name">
+                    <label class="form-label mb-2" for="Inputnumner">Account Number</label>
+                    <input type="number" class="form-control" id="Inputnumner" placeholder="Put your account number">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label mb-2" for="Inputcode">IFSC code</label>
-                    <input type="email" class="form-control" id="Inputcode" placeholder="Enter ifsc code">
+                    <label class="form-label mb-2" for="Inputbranch">Which Branch?</label>
+                    <input type="text" class="form-control" id="Inputbranch" placeholder="E.g. Bamenda Main Branch">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputcode">Bank Code (If Any)</label>
+                    <input type="text" class="form-control" id="Inputcode" placeholder="Put bank code if you get am">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputmobile">Mobile Money Number (Optional)</label>
+                    <input type="tel" class="form-control" id="Inputmobile" placeholder="MTN/Orange mobile money number">
+                    <small class="text-muted">We fit pay you for mobile money if you want</small>
                 </div>
             </form>
 
             <div class="fixed-btn">
                 <div class="custom-container">
-                    <a href="login.html" class="btn theme-btn w-100 mt-0 auth-btn">Next</a>
+                    <a href="login.html" class="btn theme-btn w-100 mt-0 auth-btn">Finish Registration</a>
                 </div>
             </div>
         </div>
@@ -106,7 +117,6 @@
     <!-- panel-space start -->
     <section class="panel-space"></section>
     <!-- panel-space end -->
-
 
     <!-- iconsax js -->
     <script src="../assets/js/iconsax.js"></script>
@@ -123,7 +133,4 @@
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
 </body>
-
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/driver-app/driver-bank-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:41:21 GMT -->
 </html>
