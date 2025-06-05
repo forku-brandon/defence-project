@@ -44,6 +44,33 @@ document.getElementById('sign-up-button').addEventListener('click', async (e) =>
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
     
+
+    
+// Function to store user data in session storage
+function storeUserSession(user) {
+    sessionStorage.setItem('user', JSON.stringify({
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        uid: user.uid
+    }));
+}
+
+// Function to clear user data from session storage
+function clearUserSession() {
+    sessionStorage.removeItem('user');
+}
+
+// Function to load user data from session storage
+function loadUserSession() {
+    const userData = sessionStorage.getItem('user');
+    if (userData) {
+        return JSON.parse(userData);
+    }
+    return null;
+}
+
+
     // Validation
     if (!name || !email || !phone || !password || !confirmPassword) {
         showError("Please fill in all fields");
@@ -91,6 +118,20 @@ document.getElementById('sign-up-button').addEventListener('click', async (e) =>
         signUpButton.disabled = false;
         signUpButton.textContent = "Sign up";
     }
+
+    // On page load, check for existing session data
+document.addEventListener('DOMContentLoaded', () => {
+    const userData = loadUserSession();
+    if (userData) {
+        // Update UI with stored user info
+        if (userName) userName.textContent = userData.displayName;
+        if (userEmail) userEmail.textContent = userData.email;
+        
+        // Show user info container if available
+        if (signInContainer) signInContainer.classList.add('hidden');
+        if (userInfoContainer) userInfoContainer.classList.remove('hidden');
+    }
+});
 });
 
 // Email validation function

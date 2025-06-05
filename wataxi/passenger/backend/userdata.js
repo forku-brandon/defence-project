@@ -9,9 +9,11 @@ if (userData) {
     document.getElementById('user-avatar').src = userData.photoURL;
      document.getElementById('username').textContent = userData.displayName;
       document.getElementById('email').textContent = userData.email;
-} else {
-    console.log("No user session found");
-    // Redirect to login if needed
-    window.location.href = "index.html";
-}
+} 
+
+// else {
+//     console.log("No user session found");
+//     // Redirect to login if needed
+//     window.location.href = "index.html";
+// }
   
