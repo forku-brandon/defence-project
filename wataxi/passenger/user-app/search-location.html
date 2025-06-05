@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="wataxi">
-    <meta name="keywords" content="wataxi">
-    <meta name="author" content="wataxi">
+    <meta name="description" content="Mami Wata Ride - NW Cameroon's Taxi App">
+    <meta name="keywords" content="taxi, ride, Bamenda, Northwest Cameroon, transport">
+    <meta name="author" content="Mami Wata Ride">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="../assets/images/logo/favicon.png" type="image/x-icon">
-    <title>wataxi - User App </title>
+    <title>Mami Wata Ride - NW Cameroon Taxi App</title>
 
     <link rel="apple-touch-icon" href="../assets/images/logo/favicon.png">
     <meta name="title-color" content="#01AA85">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="wataxi">
+    <meta name="apple-mobile-web-app-title" content="Mami Wata Ride">
     <meta name="msapplication-TileImage" content="../assets/images/logo/favicon.png">
 
     <meta name="msapplication-TileColor" content="#FFFFFF">
@@ -35,7 +34,6 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" id="rtl-link" type="text/css" href="../assets/css/vendors/bootstrap.css">
 
-
     <!-- Theme css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="../assets/css/style.css">
 </head>
@@ -51,8 +49,10 @@
                     </a>
 
                     <select class="form-select rider-options">
-                        <option selected>Switch Rider</option>
-                        <option value="1">My Self</option>
+                        <option selected>Who dey go?</option>
+                        <option value="1">Mysef</option>
+                        <option value="2">Pikin</option>
+                        <option value="3">Family</option>
                     </select>
                 </div>
             </div>
@@ -66,15 +66,15 @@
             <ul class="pickup-location-listing">
                 <li>
                     <div class="location-box">
-                        <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/location-fill.svg" alt="location">
-                        <input type="text" id="inputpickup" class="form-control" placeholder="Pickup location">
+                        <img class="icon" src="../assets/images/svg/location-fill.svg" alt="location">
+                        <input type="text" id="inputpickup" class="form-control" placeholder="Where you dey?">
                     </div>
                 </li>
                 <li>
                     <div class="location-box">
-                        <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/gps.svg" alt="gps">
+                        <img class="icon" src="../assets/images/svg/gps.svg" alt="gps">
                         <input type="text" id="inputdestination" class="form-control border-0"
-                            placeholder="Enter destination">
+                            placeholder="Where you dey go?">
                         <i class="iconsax add-stop" data-icon="add"></i>
                     </div>
                 </li>
@@ -90,17 +90,25 @@
                 <li class="ps-0">
                     <a href="#" class="categories-place-box">
                         <div class="place-icon">
-                            <img class="icon-btn" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/home-fill.svg" alt="home">
+                            <img class="icon-btn" src="../assets/images/svg/home-fill.svg" alt="home">
                         </div>
-                        <h5>Add Home</h5>
+                        <h5>My House</h5>
                     </a>
                 </li>
                 <li class="pe-0">
                     <a href="#" class="categories-place-box">
                         <div class="place-icon">
-                            <img class="icon-btn" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/work-fill.svg" alt="home">
+                            <img class="icon-btn" src="../assets/images/svg/work-fill.svg" alt="work">
                         </div>
-                        <h5>Add Work</h5>
+                        <h5>My Waka</h5>
+                    </a>
+                </li>
+                <li class="pe-0">
+                    <a href="#" class="categories-place-box">
+                        <div class="place-icon">
+                            <img class="icon-btn" src="../assets/images/svg/shop.svg" alt="market">
+                        </div>
+                        <h5>Market</h5>
                     </a>
                 </li>
             </ul>
@@ -111,60 +119,60 @@
     <!-- recent search list starts -->
     <section>
         <div class="custom-container">
-            <h3 class="title-color fw-semibold">Recent</h3>
+            <h3 class="title-color fw-semibold">Places Wey You Don Go</h3>
             <ul class="recent-place-list">
                 <li>
                     <div class="recent-box">
                         <div class="recent-icon">
-                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/history.svg" alt="history">
+                            <img class="icon" src="../assets/images/svg/history.svg" alt="history">
                         </div>
                         <div>
-                            <h5>Koramangala</h5>
-                            <p>17600 Yonge St. L3Y 4Z1</p>
+                            <h5>Bamenda Main Market</h5>
+                            <p>Commercial Avenue, Bamenda</p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="recent-box">
                         <div class="recent-icon">
-                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/history.svg" alt="history">
+                            <img class="icon" src="../assets/images/svg/history.svg" alt="history">
                         </div>
                         <div>
-                            <h5>Purdys Chocolatier</h5>
-                            <p> 149 St. John Street, Oshawa, L1H 7M3</p>
+                            <h5>Up Station</h5>
+                            <p>Bamenda I, Near Governor's Office</p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="recent-box">
                         <div class="recent-icon">
-                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/history.svg" alt="history">
+                            <img class="icon" src="../assets/images/svg/history.svg" alt="history">
                         </div>
                         <div>
-                            <h5>Toronto Eaton Centre</h5>
-                            <p>1222 Ross Street, H3B 4W8</p>
+                            <h5>Nkwen Motor Park</h5>
+                            <p>Nkwen, Bamenda III</p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="recent-box">
                         <div class="recent-icon">
-                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/history.svg" alt="history">
+                            <img class="icon" src="../assets/images/svg/history.svg" alt="history">
                         </div>
                         <div>
-                            <h5>Toronto PATH</h5>
-                            <p> 486 Eglinton Avenue, Montreal, M4P 1A6</p>
+                            <h5>Bambui Polyclinic</h5>
+                            <p>Bambui, Tubah Subdivision</p>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="recent-box">
                         <div class="recent-icon">
-                            <img class="icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/history.svg" alt="history">
+                            <img class="icon" src="../assets/images/svg/history.svg" alt="history">
                         </div>
                         <div>
-                            <h5>Purdys Chocolatier</h5>
-                            <p> 659 Tanner Street,  V5R 2T4</p>
+                            <h5>Azire Old Church</h5>
+                            <p>Azire, Bamenda II</p>
                         </div>
                     </div>
                 </li>
@@ -173,7 +181,7 @@
 
         <div class="fixed-btn">
             <div class="custom-container">
-                <a href="#ride" data-bs-toggle="offcanvas" class="btn theme-btn w-100">Done</a>
+                <a href="#ride" data-bs-toggle="offcanvas" class="btn theme-btn w-100">Waka!</a>
             </div>
         </div>
     </section>
@@ -182,25 +190,24 @@
     <!-- ride-offcanvas starts -->
     <div class="offcanvas ride-offcanvas" tabindex="-1" id="ride">
         <div class="offcanvas-body p-0">
-            <h3>Someone else taking this ride?</h3>
-            <p>Choose a contact so that they also get driver number, vehicle details and ride OTP via SMS.</p>
+            <h3>Na you dey go or you send person?</h3>
+            <p>Choose who dey go so we fit send driver details and OTP to their phone.</p>
 
             <div class="form-check">
                 <label class="form-check-label" for="fixed1"> <i class="iconsax icon" data-icon="user-1"></i>
-                    My Self</label>
+                    Mysef</label>
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="fixed1" checked="">
             </div>
             <a href="choose-rider.html" class="choose-contact">
                 <div class="d-flex align-items-center gap-2">
-                    <img class="img-fluid user-icon" src="https://themes.pixelstrap.com/pwa/wataxi/assets/images/svg/user-octagon.svg" alt="user">
-                    <h5>Choose another contact</h5>
+                    <img class="img-fluid user-icon" src="../assets/images/svg/user-octagon.svg" alt="user">
+                    <h5>Choose another person</h5>
                 </div>
                 <i class="iconsax icon-btn" data-icon="chevron-right"> </i>
-
             </a>
         </div>
         <div class="offcanvas-footer d-flex align-items-center flex-nowrap gap-3 border-0 pt-3 px-0 pb-0">
-            <a href="selact-ride.html" class="btn gray-btn title-color w-100 mt-0">Skip</a>
+            <a href="selact-ride.html" class="btn gray-btn title-color w-100 mt-0">I go choose later</a>
             <a href="selact-ride.html" class="btn theme-btn w-100 mt-0">Continue</a>
         </div>
     </div>
@@ -225,7 +232,4 @@
     <!-- script js -->
     <script src="../assets/js/script.js"></script>
 </body>
-
-
-<!-- Mirrored from themes.pixelstrap.com/pwa/wataxi/user-app/search-location.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Mar 2025 02:23:43 GMT -->
 </html>

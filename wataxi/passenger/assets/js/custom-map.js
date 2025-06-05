@@ -1,30 +1,23 @@
 var map;
+var userMarker;
 var markers = [];
 var directionsService;
 var directionsRenderer;
-var userMarker;
 
 function initMap() {
     // Default center on Bamenda, Northwest Cameroon
     const bamenda = {lat: 5.9631, lng: 10.1591};
     
-    // Map options
-    var mapOptions = {
+    // Initialize map
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
         center: bamenda,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false,
-        panControl: false,
-        zoomControl: true,
-        streetViewControl: false,
         styles: [
             {"featureType": "poi", "stylers": [{"visibility": "off"}]},
             {"featureType": "transit", "stylers": [{"visibility": "off"}]}
         ]
-    };
-
-    // Initialize map
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    });
 
     // Initialize directions service
     directionsService = new google.maps.DirectionsService();
@@ -34,78 +27,87 @@ function initMap() {
     });
     directionsRenderer.setMap(map);
 
-    // Try to get user's current location
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                var userLocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                
-                // Center map on user's location
-                map.setCenter(userLocation);
-                
-                // Add user location marker
-                userMarker = new google.maps.Marker({
-                    position: userLocation,
-                    map: map,
-                    icon: {
-                        url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
-                        scaledSize: new google.maps.Size(32, 32)
-                    },
-                    title: 'Your Location'
-                });
-                markers.push(userMarker);
-                
-                // Add destination marker (Bamenda center)
-                addMarker(bamenda.lat, bamenda.lng, 
-                         'https://cdn-icons-png.flaticon.com/512/4474/4474309.png', 
-                         'Destination');
-                
-                // Calculate route from user's location to Bamenda center
-                calculateRoute(userLocation, bamenda);
-            },
-            function(error) {
-                // If geolocation fails, use default Bamenda location
-                console.error("Geolocation error:", error);
-                initDefaultMarkers(bamenda);
-            }
-        );
-    } else {
-        // Browser doesn't support Geolocation
-        console.error("Geolocation is not supported by this browser.");
-        initDefaultMarkers(bamenda);
+    // Try to get precise location
+    getPreciseLocation();
+}
+
+function getPreciseLocation() {
+    if (!navigator.geolocation) {
+        showError("Geolocation is not supported by your browser");
+        initDefaultMarkers();
+        return;
     }
+
+    // Configuration for high accuracy
+    const options = {
+        enableHighAccuracy: true,  // Try to use GPS if available
+        timeout: 10000,           // Wait max 10 seconds
+        maximumAge: 0             // Don't use cached position
+    };
+
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            
+            // Show accuracy radius (in meters)
+            const accuracy = position.coords.accuracy;
+            
+            // Center map on user's location
+            map.setCenter(userLocation);
+            
+            // Add user location marker with accuracy circle
+            userMarker = new google.maps.Marker({
+                position: userLocation,
+                map: map,
+                icon: {
+                    url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
+                    scaledSize: new google.maps.Size(32, 32)
+                },
+                title: `Your Location (Accuracy: ${Math.round(accuracy)}m)`
+            });
+            markers.push(userMarker);
+            
+            // Add accuracy circle
+            new google.maps.Circle({
+                strokeColor: "#005F20",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#005F20",
+                fillOpacity: 0.2,
+                map: map,
+                center: userLocation,
+                radius: accuracy
+            });
+            
+            // Add destination marker (Bamenda center)
+            addDestinationMarker();
+            
+            // Calculate route
+            calculateRoute(userLocation, {lat: 5.9631, lng: 10.1591});
+        },
+        error => {
+            handleLocationError(error);
+            initDefaultMarkers();
+        },
+        options
+    );
 }
 
-function initDefaultMarkers(center) {
-    // Add default markers when geolocation isn't available
-    addMarker(center.lat, center.lng, 
-             'https://cdn-icons-png.flaticon.com/512/4474/4474284.png', 
-             'Your Location');
-    
-    addMarker(5.9650, 10.1650, 
-             'https://cdn-icons-png.flaticon.com/512/4474/4474309.png', 
-             'Destination');
-    
-    addMarker(5.9620, 10.1570, 
-             'https://cdn-icons-png.flaticon.com/512/3079/3079027.png', 
-             'Taxi Driver');
-}
-
-function addMarker(lat, lng, iconUrl, title) {
-    var marker = new google.maps.Marker({
-        position: {lat: lat, lng: lng},
+function addDestinationMarker() {
+    const destination = {lat: 5.9650, lng: 10.1650};
+    markers.push(new google.maps.Marker({
+        position: destination,
         map: map,
         icon: {
-            url: iconUrl,
+            url: 'https://cdn-icons-png.flaticon.com/512/4474/4474309.png',
             scaledSize: new google.maps.Size(32, 32)
         },
-        title: title
-    });
-    markers.push(marker);
-    return marker;
+        title: 'Destination'
+    }));
+    return destination;
 }
 
 function calculateRoute(start, end) {
@@ -113,31 +115,102 @@ function calculateRoute(start, end) {
         {
             origin: start,
             destination: end,
-            travelMode: 'DRIVING'
+            travelMode: 'DRIVING',
+            provideRouteAlternatives: false
         },
-        function(response, status) {
+        (response, status) => {
             if (status === 'OK') {
                 directionsRenderer.setDirections(response);
-                
-                // Add a taxi marker along the route
-                var route = response.routes[0];
-                var path = route.overview_path;
-                var midPoint = path[Math.floor(path.length/2)];
-                
-                addMarker(midPoint.lat(), midPoint.lng(),
-                         'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
-                         'Taxi on Route');
+                addTaxiMarker(response);
             } else {
-                console.log('Directions request failed:', status);
+                console.error('Directions request failed:', status);
             }
-        });
+        }
+    );
 }
 
-function hideAllMarkers() {
-    markers.forEach(function(marker) {
-        marker.setMap(null);
-    });
-    markers = [];
+function addTaxiMarker(response) {
+    const route = response.routes[0];
+    const path = route.overview_path;
+    const midPoint = path[Math.floor(path.length/2)];
+    
+    markers.push(new google.maps.Marker({
+        position: midPoint,
+        map: map,
+        icon: {
+            url: 'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
+            scaledSize: new google.maps.Size(32, 32)
+        },
+        title: 'Taxi on Route',
+        animation: google.maps.Animation.BOUNCE
+    }));
+}
+
+function handleLocationError(error) {
+    let errorMessage = "Error getting your location: ";
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            errorMessage += "You denied the request for geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            errorMessage += "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            errorMessage += "The request to get location timed out.";
+            break;
+        case error.UNKNOWN_ERROR:
+            errorMessage += "An unknown error occurred.";
+            break;
+    }
+    showError(errorMessage);
+}
+
+function showError(message) {
+    // Create error display element
+    const errorDiv = document.createElement('div');
+    errorDiv.style.color = '#FF0000';
+    errorDiv.style.padding = '10px';
+    errorDiv.style.backgroundColor = '#FFFFFF';
+    errorDiv.style.border = '1px solid #FF0000';
+    errorDiv.style.position = 'absolute';
+    errorDiv.style.top = '10px';
+    errorDiv.style.left = '10px';
+    errorDiv.style.zIndex = '1000';
+    errorDiv.textContent = message;
+    
+    // Add to map
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(errorDiv);
+    
+    // Remove after 5 seconds
+    setTimeout(() => errorDiv.remove(), 5000);
+}
+
+function initDefaultMarkers() {
+    // Default Bamenda markers
+    const center = {lat: 5.9631, lng: 10.1591};
+    map.setCenter(center);
+    
+    markers.push(new google.maps.Marker({
+        position: center,
+        map: map,
+        icon: {
+            url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
+            scaledSize: new google.maps.Size(32, 32)
+        },
+        title: 'Default Location'
+    }));
+    
+    addDestinationMarker();
+    
+    markers.push(new google.maps.Marker({
+        position: {lat: 5.9620, lng: 10.1570},
+        map: map,
+        icon: {
+            url: 'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
+            scaledSize: new google.maps.Size(32, 32)
+        },
+        title: 'Taxi'
+    }));
 }
 
 // Initialize the map
