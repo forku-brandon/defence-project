@@ -3,6 +3,7 @@ var userMarker;
 var markers = [];
 var directionsService;
 var directionsRenderer;
+var taxis = [];
 
 function initMap() {
     // Default center on Bamenda, Northwest Cameroon
@@ -63,8 +64,12 @@ function getPreciseLocation() {
                 position: userLocation,
                 map: map,
                 icon: {
-                    url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
-                    scaledSize: new google.maps.Size(32, 32)
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: "#4285F4",
+                    fillOpacity: 1,
+                    strokeColor: "#FFFFFF",
+                    strokeWeight: 2,
+                    scale: 8
                 },
                 title: `Your Location (Accuracy: ${Math.round(accuracy)}m)`
             });
@@ -72,10 +77,10 @@ function getPreciseLocation() {
             
             // Add accuracy circle
             new google.maps.Circle({
-                strokeColor: "#005F20",
+                strokeColor: "#4285F4",
                 strokeOpacity: 0.8,
                 strokeWeight: 2,
-                fillColor: "#005F20",
+                fillColor: "#4285F4",
                 fillOpacity: 0.2,
                 map: map,
                 center: userLocation,
@@ -84,6 +89,9 @@ function getPreciseLocation() {
             
             // Add destination marker (Bamenda center)
             addDestinationMarker();
+            
+            // Add random taxis around the user (5 taxis within 2km radius)
+            addRandomTaxis(userLocation, 2000, 5);
             
             // Calculate route
             calculateRoute(userLocation, {lat: 5.9631, lng: 10.1591});
@@ -96,13 +104,60 @@ function getPreciseLocation() {
     );
 }
 
+function addRandomTaxis(center, radiusMeters, count) {
+    // Clear existing taxis
+    clearTaxis();
+    
+    // Generate random taxi positions
+    for (let i = 0; i < count; i++) {
+        const randomLocation = generateRandomLocation(center, radiusMeters);
+        
+        const taxi = new google.maps.Marker({
+            position: randomLocation,
+            map: map,
+            icon: {
+                url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V3H9v2H6.5c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z'/%3E%3C/svg%3E",
+                scaledSize: new google.maps.Size(40, 40),
+                anchor: new google.maps.Point(20, 20)
+            },
+            title: 'Available Taxi',
+            animation: google.maps.Animation.BOUNCE
+        });
+        
+        taxis.push(taxi);
+        markers.push(taxi);
+    }
+}
+
+function generateRandomLocation(center, radiusMeters) {
+    // Convert meters to degrees (approximate)
+    const radiusDegrees = radiusMeters / 111320;
+    
+    // Generate random angle and distance
+    const angle = Math.random() * Math.PI * 2;
+    const distance = Math.sqrt(Math.random()) * radiusDegrees;
+    
+    // Calculate new position
+    const lat = center.lat + (distance * Math.cos(angle));
+    const lng = center.lng + (distance * Math.sin(angle));
+    
+    return { lat, lng };
+}
+
+function clearTaxis() {
+    for (let i = 0; i < taxis.length; i++) {
+        taxis[i].setMap(null);
+    }
+    taxis = [];
+}
+
 function addDestinationMarker() {
     const destination = {lat: 5.9650, lng: 10.1650};
     markers.push(new google.maps.Marker({
         position: destination,
         map: map,
         icon: {
-            url: 'https://cdn-icons-png.flaticon.com/512/4474/4474309.png',
+            url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF0000'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E",
             scaledSize: new google.maps.Size(32, 32)
         },
         title: 'Destination'
@@ -138,8 +193,8 @@ function addTaxiMarker(response) {
         position: midPoint,
         map: map,
         icon: {
-            url: 'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
-            scaledSize: new google.maps.Size(32, 32)
+            url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V3H9v2H6.5c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z'/%3E%3C/svg%3E",
+            scaledSize: new google.maps.Size(40, 40)
         },
         title: 'Taxi on Route',
         animation: google.maps.Animation.BOUNCE
@@ -194,23 +249,20 @@ function initDefaultMarkers() {
         position: center,
         map: map,
         icon: {
-            url: 'https://cdn-icons-png.flaticon.com/512/4474/4474284.png',
-            scaledSize: new google.maps.Size(32, 32)
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: "#4285F4",
+            fillOpacity: 1,
+            strokeColor: "#FFFFFF",
+            strokeWeight: 2,
+            scale: 8
         },
         title: 'Default Location'
     }));
     
     addDestinationMarker();
     
-    markers.push(new google.maps.Marker({
-        position: {lat: 5.9620, lng: 10.1570},
-        map: map,
-        icon: {
-            url: 'https://cdn-icons-png.flaticon.com/512/3079/3079027.png',
-            scaledSize: new google.maps.Size(32, 32)
-        },
-        title: 'Taxi'
-    }));
+    // Add some default taxis (3 taxis within 2km radius)
+    addRandomTaxis(center, 2000, 3);
 }
 
 // Initialize the map
