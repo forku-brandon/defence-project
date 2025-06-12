@@ -94,13 +94,33 @@
         </ul>
 
         <div class="custom-container">
-            <a href="#" class="btn theme-btn px-3 mb-3 w-100">Broadcast to Drivers</a>
+            <a  href="#logout" class="btn theme-btn px-3 mb-3 w-100" data-bs-toggle="modal">Broadcast to Drivers</a>
+          
         </div>
-    </div>
-
+ </div>
     <!-- panel-space start -->
     <section class="panel-space"></section>
     <!-- panel-space end -->
+
+        <!-- logout modal starts -->
+    <div class="modal delete-modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="img-fluid icon" src="http://www.w3.org/2000/svg" alt="GREAT">
+                    <h4>Drivers are on thier way!!</h4>
+                    <p>Broadcasting Succesfully.....</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn gray-btn w-50 m-0" data-bs-dismiss="modal">Stay Here</a>
+                    <a href="home.html" class="btn theme-btn w-50 m-0">Go to Home Page </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- logout modal end -->
+   
 
     <!-- map js -->
     <script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v7.0/mapsJavaScriptAPI.js" async defer></script>
