@@ -1,22 +1,38 @@
-/*==========================
- add to home screen popup js
- ==========================*/
 let deferredPrompt;
+const installButton = document.getElementById('installApp');
+
+// Hide install button initially if not supported
+if (!window.matchMedia('(display-mode: standalone)').matches) {
+  installButton.style.display = 'none';
+}
 
 window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the mini-infobar from appearing on mobile
+  e.preventDefault();
+  // Stash the event so it can be triggered later
   deferredPrompt = e;
+  // Show the install button
+  installButton.style.display = 'block';
+  
+  installButton.addEventListener('click', async () => {
+    // Show the install prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice;
+    // Optionally, send analytics about user's choice
+    console.log(`User response to the install prompt: ${outcome}`);
+    // We've used the prompt, and can't use it again, throw it away
+    deferredPrompt = null;
+    // Hide the install button
+    installButton.style.display = 'none';
+  });
 });
 
-const installApp = document.getElementById('installApp');
-
-installApp.addEventListener('click', async () => {
-  if (deferredPrompt !== null) {
-    deferredPrompt.prompt();
-    const {
-      outcome
-    } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-      deferredPrompt = null;
-    }
-  }
+// Track when app is successfully installed
+window.addEventListener('appinstalled', () => {
+  // Hide the install button
+  installButton.style.display = 'none';
+  // Clear the deferredPrompt so it can be garbage collected
+  deferredPrompt = null;
+  console.log('PWA was installed');
 });
