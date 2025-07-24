@@ -291,7 +291,7 @@
         .cta {
             padding: 80px 0;
             background-color: var(--dark);
-         background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/images.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/images.jpg') no-repeat center center/cover;
 
             color: var(--white);
             text-align: center;
@@ -319,7 +319,7 @@
         /* Footer */
         footer {
             background-color: var(--dark);
-             background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/25C94A90-139C-400E-B5C3-0F0EAE20D5D9.jpeg') no-repeat center center/cover;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/25C94A90-139C-400E-B5C3-0F0EAE20D5D9.jpeg') no-repeat center center/cover;
 
             color: var(--white);
             padding: 50px 0 20px;
@@ -497,7 +497,147 @@
             }
         }
     </style>
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
 
+        .logo-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 40px;
+        }
+
+        .logo-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-yellow);
+            animation: spin 1.5s linear infinite;
+        }
+
+        .logo-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease 0.3s forwards;
+        }
+
+        .loading-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-yellow), #FFEE80);
+            border-radius: 2px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .loading-text {
+            color: var(--primary-white);
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .loading-subtext {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .pulse-animation {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-yellow);
+            box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            animation: pulse 1.5s infinite;
+            margin: 0 5px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
 
     <style>
         :root {
@@ -612,13 +752,32 @@
             opacity: 1;
             visibility: visible;
         }
-
-    
-
     </style>
 </head>
 
 <body>
+
+<!-- Preloader -->
+    <div id="preloader">
+        <div class="logo-container">
+            <div class="logo-circle"></div>
+            <img src="https://via.placeholder.com/80x80/FFD700/1A1A1A?text=WT" alt="Wataxi" class="logo-inner">
+        </div>
+        
+        <div class="loading-container">
+            <h3 class="loading-text">Wataxi is arriving</h3>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <p class="loading-subtext">
+                <span class="pulse-animation"></span>
+                <span id="loadingMessage">Initializing system</span>
+                <span class="pulse-animation"></span>
+            </p>
+        </div>
+    </div>
+
+
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" class="scroll-to-top" title="Go to top">
@@ -659,7 +818,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#contact">Contact</a>
                         </li>
-                       
+
                     </ul>
                 </div>
             </div>
@@ -1184,6 +1343,58 @@
                 $('#preloader').fadeOut('slow');
             });
         });
+    </script>
+
+    
+    <script>
+        // Loading simulation (in production, use actual loading events)
+        const loadingProgress = document.getElementById('loadingProgress');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const preloader = document.getElementById('preloader');
+        const mainContent = document.getElementById('main-content');
+        
+        const messages = [
+            { text: "Connecting to drivers...", percent: 15 },
+            { text: "Checking your location...", percent: 30 },
+            { text: "Finding optimal route...", percent: 50 },
+            { text: "Almost there...", percent: 75 },
+            { text: "Ready to ride!", percent: 100 }
+        ];
+        
+        let currentProgress = 0;
+        let currentMessage = 0;
+        
+        const loadingInterval = setInterval(() => {
+            // Increment progress randomly between 1-5%
+            currentProgress += Math.min(5, Math.floor(Math.random() * 5) + 1);
+            
+            // Update progress bar
+            loadingProgress.style.width = `${currentProgress}%`;
+            
+            // Update messages at certain intervals
+            if (currentMessage < messages.length && 
+                currentProgress >= messages[currentMessage].percent) {
+                loadingMessage.textContent = messages[currentMessage].text;
+                currentMessage++;
+            }
+            
+            // When loading is complete
+            if (currentProgress >= 100) {
+                clearInterval(loadingInterval);
+                
+                // Add slight delay before hiding preloader
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    
+                    // Show main content
+                    mainContent.style.display = 'block';
+                }, 800);
+            }
+        }, 150);
+        
+        // For actual implementation, you would use:
+        // window.addEventListener('load', () => { ... });
     </script>
 </body>
 
